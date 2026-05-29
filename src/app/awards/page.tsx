@@ -47,13 +47,69 @@ const awardsData = [
         name: "Minister Tim Hodgson",
         title: "Minister of Energy and Natural Resources of Canada",
         image: "/timhodgson2.jpg",
-        desc: "The Honourable Tim Hodgson is the Minister of Energy and Natural Resources and the newly elected Member of Parliament for Markham-Thornhill in 2025.\n\nA proud Ivey Business School alumnus, Mr. Hodgson is the former Chair of Hydro One and previously served as CEO of Goldman Sachs Canada. He also served as an Advisor to the Bank of Canada, bringing with him decades of leadership experience across both the public and private sectors."
+        desc: "The Honourable Tim Hodgson is the Minister of Energy and Natural Resources and MP for Markham-Thornhill. He is the former Chair of Hydro One and former CEO of Goldman Sachs Canada, bringing decades of leadership across the public and private sectors."
       },
       {
         name: "Mayor Frank Scarpitti",
         title: "Mayor of Markham, Ontario",
         image: "/frankscarpitti.jpeg",
-        desc: "His Worship Frank Scarpitti has served as the Mayor of Markham since 2006, making him the city's longest-serving mayor.\n\nBeyond civic leadership, Mayor Scarpitti is deeply committed to community and charitable work. He co-chaired the Markham Stouffville Hospital Capital Campaign, successfully raising over $50 million."
+        desc: "His Worship Frank Scarpitti has served as the Mayor of Markham since 2006, making him the city's longest-serving mayor. He is deeply committed to charitable work, having co-chaired the Markham Stouffville Hospital campaign which raised over $50 million."
+      }
+    ],
+    winners: [
+      {
+        name: "Tim Kwan",
+        title: "Chairman of Mon Sheong Foundation",
+        image: "/timkwan.jpg",
+        desc: "Mr. Tim Kwan, Chairman of the Mon Sheong Foundation, is a successful STEM entrepreneur and mentor to CYC since its inception. Recipient of the Senate of Canada Sesquicentennial Medal, he receives the Lifelong Contribution Award for his outstanding dedication to both business and community."
+      },
+      {
+        name: "Master Shan 單柏欽",
+        title: "Renowned Artist",
+        image: "/mastershan.jpg",
+        desc: "Master Shan Bai Qin is a highly respected Lingnan School artist in Toronto, known for his excellence in freehand and meticulous brushwork. With works exhibited worldwide, his art beautifully reflects cultural heritage and the harmony of Eastern and Western traditions."
+      },
+      {
+        name: "Tony Chang",
+        title: "Global Executive & Community Leader",
+        image: "/tonychang.jpg",
+        desc: "Tony Chang is a global executive and CPA with extensive leadership experience across North America and Asia, holding senior roles at Tim Hortons and Shoppers Drug Mart. Passionate about healthcare, he has chaired the Yee Hong Board since 2021."
+      },
+      {
+        name: "Stephen Siu",
+        title: "President of the Yee Hong Community Wellness Foundation",
+        image: "/stephensiu.png",
+        desc: "Stephen Siu is President of the Yee Hong Community Wellness Foundation, leading major fundraising efforts to enhance seniors' lives in the GTA. With a strong background in public relations, he is dedicated to promoting quality care and cultural engagement."
+      },
+      {
+        name: "Alan Lam",
+        title: "Chairman of Greenvilla Homes",
+        image: "/alanlamreplace.jpg",
+        desc: "Alan Lam is an engineer and Chairman of Greenvilla Homes, specializing in GTA land development. A dedicated community leader, he has served on the Board of the Chinese Cultural Centre of Greater Toronto since 2000 and is a two-time June Callwood Volunteerism Award recipient."
+      },
+      {
+        name: "Henry Lee",
+        title: "Honorary Consul of Malaysia in Toronto",
+        image: "/henrylee1.jpg",
+        desc: "Henry Leong Bee Lee has served as Honorary Consul of Malaysia in Toronto since 2019. With an extensive background in banking and public service, he actively promotes cultural diplomacy, hospital philanthropy, and international cooperation."
+      },
+      {
+        name: "Stephen Chan",
+        title: "Founder of Dapasoft Inc.",
+        image: "/stephenchanhd.png",
+        desc: "Stephen Chan is the founder and former CEO of Dapasoft Inc., a Toronto healthcare IT firm acquired by Calian Group in 2021. An active angel investor, he also serves as a board member of the Ma'mo'weh Wii'soo'ka'tiwin Foundation, supporting innovation and entrepreneurship."
+      },
+      {
+        name: "Jeffrey Mah",
+        title: "Director of the Mon Sheong Foundation",
+        image: "/jeffreymah.jpg",
+        desc: "Jeffrey Mah is a successful IT entrepreneur and Director of the Mon Sheong Foundation. As a dedicated mentor and judge for CYC since its inception, he has empowered countless young people to reach their full potential."
+      },
+      {
+        name: "Frank Chau",
+        title: "President of the Yee Hong Community Wellness Foundation",
+        image: "/frankchau.jpg",
+        desc: "Frank Chau is a Special Advisor to the Mon Sheong Foundation who led the development of Mississauga Chinatown and helped expand BMO into Asia. His visionary leadership has left a lasting impact on business and the Chinese Canadian community."
       }
     ]
   },
@@ -66,13 +122,48 @@ const awardsData = [
     border: "border-cyc-teal/20",
     desc: "The Asian Champions Award is designed to honor outstanding individuals of Asian heritage who have demonstrated exceptional leadership, professional excellence, and a steadfast commitment to community service. This award recognizes role models within the Asian Canadian community who break barriers, foster cultural understanding, and pave the way for future generations. By celebrating their accomplishments in fields such as business, arts, public service, and philanthropy, CYC aims to inspire young people to embrace their heritage while making meaningful contributions to the broader Canadian society.",
     presenters: [
-      { name: "Honourable Dr. Vivienne Poy", title: "Businesswoman, author and philanthropist" },
-      { name: "Mary Ng", title: "Minister of Export Promotion, International Trade and Economic Development" },
-      { name: "Harjit Sajjan", title: "Minister of Emergency Preparedness of Canada" },
-      { name: "Winnie Chan", title: "Vice President of Sales Management at Tridel" },
-      { name: "Li Zhiping", title: "Founder of the Toronto Chinese Artist Center" },
-      { name: "Justin Poy", title: "Founder of the Justin Poy Agency and Philanthropist" },
-      { name: "Rebecca Pang", title: "Vice President of RBC" }
+      {
+        name: "Honourable Dr. Vivienne Poy",
+        title: "Businesswoman, author and philanthropist",
+        image: "/Vivienne_Poy.jpg",
+        desc: "Vivienne Poy made history in 1998 as the first Canadian Senator of Asian ancestry and successfully championed the designation of May as \"Asian Heritage Month\". An entrepreneur, author, and former chancellor of the University of Toronto, she has been a lifelong advocate for cultural understanding and education."
+      },
+      {
+        name: "Mary Ng",
+        title: "Minister of Export Promotion, International Trade and Economic Development",
+        image: "/mary ng.jpeg",
+        desc: "Mary Ng is a top-performing public sector leader serving as Canada's Minister of Export Promotion, International Trade, and Economic Development. She represents Markham-Thornhill as a Member of Parliament and previously served in the Prime Minister's Office."
+      },
+      {
+        name: "Harjit Sajjan",
+        title: "Minister of Emergency Preparedness of Canada",
+        image: "/harjitsajjan.png",
+        desc: "Harjit Sajjan is the Minister of Emergency Preparedness for Canada, leading national crisis response efforts. With a strong background in military service and public policy, he is a dedicated advocate for the safety and security of all Canadians."
+      },
+      {
+        name: "Li Zhiping (李治平)",
+        title: "Founder of the Toronto Chinese Artist Center",
+        image: "/lizhiping.jpg",
+        desc: "Li ZiPing is a lifelong musician and highly respected arts advocate. As the founder of the Toronto Chinese Artist Center—the largest professional organization for Chinese artists in North America—he has made a profound and lasting impact on the artistic community."
+      },
+      {
+        name: "Justin Poy",
+        title: "Founder of the Justin Poy Agency and Philanthropist",
+        image: "/justinpoy.jpg",
+        desc: "Justin Poy is an award-winning advertising entrepreneur and dedicated philanthropist. Incorporating lessons from his own life challenges, he has successfully raised millions of dollars to support hospitals, universities, and charitable organizations across Canada."
+      },
+      {
+        name: "Winnie Chan",
+        title: "Vice President of Sales Management at Tridel",
+        image: "/winniechan.jpg",
+        desc: "Winnie Chan is the Vice President at Tridel, overseeing a massive portfolio of sustainable land development projects. She is a recognized industry expert who actively champions diversity, equity, and inclusion within the construction sector."
+      },
+      {
+        name: "Rebecca Pang",
+        title: "Vice President of RBC",
+        image: "/rebeccapang.jpeg",
+        desc: "Rebecca Pang is the Vice President of RBC, bringing global expertise from her previous leadership roles at McKinsey & Company, T-Mobile, and China Netcom. She is a dynamic leader who also serves on multiple strategic boards."
+      }
     ]
   },
   {
@@ -188,7 +279,7 @@ export default function AwardsPage() {
                 key={award.id}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ margin: "-100px", amount: 0.2 }}
+                viewport={{ once: true, margin: "-100px", amount: 0.05 }}
                 variants={scaleIn}
                 className={`bg-white rounded-[2rem] border ${award.border} shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-400`}
               >
@@ -204,23 +295,59 @@ export default function AwardsPage() {
                       </p>
                       
                       {/* Featured Presenters (With Images) rendered inline */}
-                      {award.presenters.some((p: any) => p.image) && (
+                      {award.presenters && award.presenters.some((p: any) => p.image) && (
                         <div className="mt-12">
                           <h4 className="font-bold text-cyc-navy text-xl mb-8 flex items-center gap-2 border-b border-gray-100 pb-4">
                             <UserCheck className="w-6 h-6 text-cyc-teal" />
                             Featured Award Presenters
                           </h4>
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                          <div className="flex flex-wrap justify-center gap-6">
                             {award.presenters.map((presenter: any, pIndex) => (
-                              <div key={pIndex} className="flex flex-col bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
-                                <div className="relative w-full h-[340px]">
-                                  <Image src={presenter.image} alt={presenter.name} fill className="object-cover object-top" />
+                              <div key={pIndex} className="flex flex-col w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
+                                <div className="relative w-full aspect-[4/5] bg-gray-100 flex items-center justify-center">
+                                  {presenter.image ? (
+                                    <Image src={presenter.image} alt={presenter.name} fill className="object-cover object-top" />
+                                  ) : (
+                                    <span className="text-gray-400 font-bold text-sm">Image Unavailable</span>
+                                  )}
                                 </div>
-                                <div className="p-8">
-                                  <h5 className="font-black text-2xl text-gray-900 mb-2 tracking-tight">{presenter.name}</h5>
-                                  <p className="text-sm font-bold text-cyc-teal mb-6 uppercase tracking-wider">{presenter.title}</p>
-                                  <div className="text-sm text-gray-600 space-y-4 leading-relaxed font-medium">
+                                <div className="p-4 flex flex-col items-center text-center">
+                                  <h5 className="font-black text-base text-gray-900 mb-1 tracking-tight">{presenter.name}</h5>
+                                  <p className="text-[10px] font-bold text-cyc-teal mb-3 uppercase tracking-wider">{presenter.title}</p>
+                                  <div className="text-[11px] text-gray-600 space-y-2 leading-relaxed font-medium">
                                     {presenter.desc?.split('\n\n').map((paragraph: string, pIdx: number) => (
+                                      <p key={pIdx}>{paragraph}</p>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Featured Award Winners (With Images) */}
+                      {award.winners && award.winners.length > 0 && (
+                        <div className="mt-12">
+                          <h4 className="font-bold text-cyc-navy text-xl mb-8 flex items-center gap-2 border-b border-gray-100 pb-4">
+                            <Trophy className="w-6 h-6 text-cyc-yellow" />
+                            Award Winners
+                          </h4>
+                          <div className="flex flex-wrap justify-center gap-6">
+                            {award.winners.map((winner: any, wIndex: number) => (
+                              <div key={wIndex} className="flex flex-col w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
+                                <div className="relative w-full aspect-[4/5] bg-gray-100 flex items-center justify-center">
+                                  {winner.image ? (
+                                    <Image src={winner.image} alt={winner.name} fill className="object-cover object-top" />
+                                  ) : (
+                                    <span className="text-gray-400 font-bold text-sm">Image Unavailable</span>
+                                  )}
+                                </div>
+                                <div className="p-4 flex flex-col items-center text-center">
+                                  <h5 className="font-black text-base text-gray-900 mb-1 tracking-tight">{winner.name}</h5>
+                                  <p className="text-[10px] font-bold text-cyc-teal mb-3 uppercase tracking-wider">{winner.title}</p>
+                                  <div className="text-[11px] text-gray-600 space-y-2 leading-relaxed font-medium">
+                                    {winner.desc?.split('\n\n').map((paragraph: string, pIdx: number) => (
                                       <p key={pIdx}>{paragraph}</p>
                                     ))}
                                   </div>
