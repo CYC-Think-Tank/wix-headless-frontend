@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Briefcase, GraduationCap, Building, Star, Target } from "lucide-react";
+import { ArrowRight, Briefcase, GraduationCap, Building, Star, Target, ChevronDown } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -36,11 +36,11 @@ export default function InternshipProgramPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex items-center justify-start overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/internship.png')" }}
+          style={{ backgroundImage: "url('/internship.jpg')" }}
         >
           <div className="absolute inset-0 bg-slate-950/85"></div>
         </div>
@@ -64,6 +64,15 @@ export default function InternshipProgramPage() {
             </motion.a>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 z-20"
+        >
+          <ChevronDown className="w-10 h-10" />
+        </motion.div>
       </section>
 
       {/* Main Content */}

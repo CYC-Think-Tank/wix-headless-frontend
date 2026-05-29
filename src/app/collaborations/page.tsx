@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Briefcase, GraduationCap, Users, HeartPulse, Stethoscope, Handshake, Network } from "lucide-react";
+import { ArrowRight, Briefcase, GraduationCap, Users, HeartPulse, Stethoscope, Handshake, Network, ChevronDown } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -36,7 +36,7 @@ export default function CollaborationsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex items-center justify-start overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -60,6 +60,15 @@ export default function CollaborationsPage() {
             </motion.p>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 z-20"
+        >
+          <ChevronDown className="w-10 h-10" />
+        </motion.div>
       </section>
 
       {/* Main Content */}
