@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AlumniCarousel from "@/components/AlumniCarousel";
 import AboutSection from "@/components/AboutSection";
+import ThinkTankSection from "@/components/ThinkTankSection";
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
 
@@ -35,6 +36,9 @@ export default async function Home() {
 
       {/* About & Mission Section */}
       <AboutSection />
+
+      {/* Think Tank Section */}
+      <ThinkTankSection />
 
       {/* Final Call to Action */}
       <BottomCTA />

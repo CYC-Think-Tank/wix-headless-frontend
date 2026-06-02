@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
@@ -216,6 +217,9 @@ const awardsData = [
 ];
 
 export default function AwardsPage() {
+  const [activeYear, setActiveYear] = useState("2025");
+  const years = ["2026", "2025", "2024", "2023"];
+
   return (
     <main className="flex min-h-screen flex-col bg-white relative font-sans text-gray-900 selection:bg-cyc-teal/30 selection:text-cyc-navy">
       <Header />
@@ -273,8 +277,51 @@ export default function AwardsPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-16 w-full">
-            {awardsData.map((award, index) => (
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {years.map((year) => (
+              <button
+                key={year}
+                onClick={() => setActiveYear(year)}
+                className={`px-8 py-3 rounded-full font-bold text-lg transition-all duration-300 ${
+                  activeYear === year
+                    ? "bg-cyc-navy text-white shadow-lg"
+                    : "bg-white text-gray-500 border border-gray-200 hover:border-cyc-teal hover:text-cyc-teal"
+                }`}
+              >
+                {year} Awards
+              </button>
+            ))}
+          </div>
+
+          {activeYear === "2026" && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={scaleIn}
+              className="bg-cyc-teal/10 border border-cyc-teal/30 rounded-3xl p-12 text-center max-w-3xl mx-auto"
+            >
+              <Trophy className="w-16 h-16 text-cyc-teal mx-auto mb-6" />
+              <h3 className="text-3xl font-black text-cyc-navy mb-4">2026 Awards</h3>
+              <p className="text-xl text-cyc-navy/80 font-medium">
+                Applications are now open. Submit your nomination to <a href="mailto:awards@thecyc.org" className="text-cyc-teal hover:underline font-bold">awards@thecyc.org</a>
+              </p>
+            </motion.div>
+          )}
+
+          {activeYear !== "2026" && activeYear !== "2025" && (
+             <motion.div
+               initial="hidden"
+               animate="visible"
+               variants={scaleIn}
+               className="text-center py-20"
+             >
+               <h3 className="text-2xl font-bold text-gray-400">Award recipients for {activeYear} will be updated soon.</h3>
+             </motion.div>
+          )}
+
+          {activeYear === "2025" && (
+            <div className="space-y-16 w-full">
+              {awardsData.map((award, index) => (
               <motion.div
                 key={award.id}
                 initial="hidden"
@@ -381,8 +428,7 @@ export default function AwardsPage() {
               </motion.div>
             ))}
           </div>
-
-
+          )}
 
         </div>
       </section>

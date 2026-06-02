@@ -47,8 +47,8 @@ export default function AboutSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-black text-white mb-4 tracking-tight">
-              Our Mission
+            <h2 className="text-2xl font-black text-white mb-4 tracking-tight">
+              Our Mission and Vision
             </h2>
             <p className="text-xl text-blue-50/90 leading-relaxed font-medium">
               Our mission is to help youth find their purpose, passions & place in our community through learning opportunities & experiences. We believe that everyone can make a difference in our community!
