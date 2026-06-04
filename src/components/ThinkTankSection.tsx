@@ -8,7 +8,7 @@ export default function ThinkTankSection() {
     <section className="w-full bg-gray-50 py-24 px-6 lg:px-8 relative overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
@@ -30,7 +30,7 @@ export default function ThinkTankSection() {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}

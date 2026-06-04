@@ -7,13 +7,13 @@ import { motion, Variants } from "framer-motion";
 import { CheckCircle2, Rocket, Megaphone, Briefcase, GraduationCap, Users, Trophy, ArrowRight, Calendar, Star, Presentation, Handshake, ChevronDown } from "lucide-react";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5 } },
+  visible: { opacity: 1, transition: { duration: 0.6 } },
 };
 
 const stagger: Variants = {
@@ -22,17 +22,17 @@ const stagger: Variants = {
 };
 
 const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const expand: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 80 },
+  hidden: { opacity: 0, scale: 0.95, y: 30 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.9, ease: "easeOut", staggerChildren: 0.15 }
+    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.1 }
   },
 };
 
@@ -42,7 +42,7 @@ export default function HighSchoolProgramPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
+      <section className="relative w-full min-h-[95vh] flex items-center justify-start overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -64,7 +64,7 @@ export default function HighSchoolProgramPage() {
             <motion.p variants={fadeUp} className="text-xl lg:text-2xl text-gray-300 mb-12 font-medium tracking-tight leading-relaxed">
               A semester-based innovation and leadership initiative designed to empower students to create meaningful, community-focused solutions to real-world challenges.
             </motion.p>
-            <motion.a variants={fadeUp} href="/register" className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:-translate-y-1 transition-all duration-300">
+            <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="/register" className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl transition-colors duration-300">
               Apply Now
               <ArrowRight className="w-5 h-5" />
             </motion.a>
@@ -72,12 +72,11 @@ export default function HighSchoolProgramPage() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 z-20"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
         >
-          <ChevronDown className="w-10 h-10" />
+        <ChevronDown className="w-12 h-12 text-white/60" strokeWidth={1.5} />
         </motion.div>
       </section>
 
@@ -382,6 +381,10 @@ export default function HighSchoolProgramPage() {
                     <span className="font-bold text-white">{criteria}</span>
                   </motion.div>
                 ))}
+                
+                <motion.div variants={fadeUp} className="relative w-full aspect-video rounded-3xl overflow-hidden mt-8 shadow-2xl border border-white/10 hidden md:block">
+                  <Image src="/presentation.jpg" alt="Student Presentation" fill className="object-cover" />
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>
@@ -404,7 +407,7 @@ export default function HighSchoolProgramPage() {
           <motion.p variants={fadeUp} className="text-xl text-gray-600 mb-10">
             Join the next semester of the CYC High School Program and start building your future today.
           </motion.p>
-          <motion.a variants={fadeUp} href="/register" className="inline-flex items-center gap-3 px-10 py-5 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-black text-xl rounded-2xl shadow-[0_0_30px_rgba(0,229,255,0.25)] hover:shadow-[0_0_40px_rgba(0,229,255,0.4)] hover:-translate-y-1 transition-all duration-300">
+          <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="/register" className="inline-flex items-center gap-3 px-10 py-5 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-black text-xl rounded-2xl transition-colors duration-300">
             Apply for the Program
             <ArrowRight className="w-6 h-6" />
           </motion.a>

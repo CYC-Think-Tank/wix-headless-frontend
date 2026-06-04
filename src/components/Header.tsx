@@ -73,13 +73,9 @@ export default function Header() {
             </button>
             <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden flex flex-col py-2">
-                <Link href="/internship-program" className="px-5 py-2 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
+                <Link href="/internship-program" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors border-b border-gray-50">
                   Co-op
                 </Link>
-                <Link href="/collaborations" className="px-8 py-2 text-sm font-medium text-gray-500 hover:text-cyc-teal hover:bg-gray-50 transition-colors">
-                  Collaborations
-                </Link>
-                <div className="w-full h-px bg-gray-50 my-1"></div>
                 <Link href="/startups-2026" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
                   Startups (Summer 2026)
                 </Link>

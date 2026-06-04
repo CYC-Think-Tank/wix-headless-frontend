@@ -5,11 +5,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import { Trophy, Globe, Heart, Users, Shield, ArrowRight, UserCheck, ChevronDown } from "lucide-react";
+import { Trophy, Globe, Heart, Users, Shield, ArrowRight, UserCheck, ChevronDown, Star } from "lucide-react";
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const stagger: Variants = {
@@ -18,23 +18,24 @@ const stagger: Variants = {
 };
 
 const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const expand: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 80 },
+  hidden: { opacity: 0, scale: 0.95, y: 30 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.9, ease: "easeOut", staggerChildren: 0.15 }
+    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.1 }
   },
 };
 
 
 
-const awardsData = [
+const awardsDataByYear: Record<string, any[]> = {
+  "2025": [
   {
     id: "canadian",
     title: "Canadian Champions Award",
@@ -130,40 +131,10 @@ const awardsData = [
         desc: "Vivienne Poy made history in 1998 as the first Canadian Senator of Asian ancestry and successfully championed the designation of May as \"Asian Heritage Month\". An entrepreneur, author, and former chancellor of the University of Toronto, she has been a lifelong advocate for cultural understanding and education."
       },
       {
-        name: "Mary Ng",
-        title: "Minister of Export Promotion, International Trade and Economic Development",
-        image: "/mary ng.jpeg",
-        desc: "Mary Ng is a top-performing public sector leader serving as Canada's Minister of Export Promotion, International Trade, and Economic Development. She represents Markham-Thornhill as a Member of Parliament and previously served in the Prime Minister's Office."
-      },
-      {
         name: "Harjit Sajjan",
         title: "Minister of Emergency Preparedness of Canada",
         image: "/harjitsajjan.png",
         desc: "Harjit Sajjan is the Minister of Emergency Preparedness for Canada, leading national crisis response efforts. With a strong background in military service and public policy, he is a dedicated advocate for the safety and security of all Canadians."
-      },
-      {
-        name: "Li Zhiping (李治平)",
-        title: "Founder of the Toronto Chinese Artist Center",
-        image: "/lizhiping.jpg",
-        desc: "Li ZiPing is a lifelong musician and highly respected arts advocate. As the founder of the Toronto Chinese Artist Center—the largest professional organization for Chinese artists in North America—he has made a profound and lasting impact on the artistic community."
-      },
-      {
-        name: "Justin Poy",
-        title: "Founder of the Justin Poy Agency and Philanthropist",
-        image: "/justinpoy.jpg",
-        desc: "Justin Poy is an award-winning advertising entrepreneur and dedicated philanthropist. Incorporating lessons from his own life challenges, he has successfully raised millions of dollars to support hospitals, universities, and charitable organizations across Canada."
-      },
-      {
-        name: "Winnie Chan",
-        title: "Vice President of Sales Management at Tridel",
-        image: "/winniechan.jpg",
-        desc: "Winnie Chan is the Vice President at Tridel, overseeing a massive portfolio of sustainable land development projects. She is a recognized industry expert who actively champions diversity, equity, and inclusion within the construction sector."
-      },
-      {
-        name: "Rebecca Pang",
-        title: "Vice President of RBC",
-        image: "/rebeccapang.jpeg",
-        desc: "Rebecca Pang is the Vice President of RBC, bringing global expertise from her previous leadership roles at McKinsey & Company, T-Mobile, and China Netcom. She is a dynamic leader who also serves on multiple strategic boards."
       }
     ]
   },
@@ -208,13 +179,115 @@ const awardsData = [
     bgColor: "bg-cyc-yellow/10",
     border: "border-cyc-yellow/20",
     desc: "The Black Champions Award is dedicated to honoring Black Canadians who have exhibited exemplary leadership, driven social change, and achieved excellence across various industries. This award seeks to amplify the voices and accomplishments of Black leaders who serve as vital role models for youth. By celebrating their success and dedication to social justice, entrepreneurship, and community development, CYC emphasizes the critical importance of uplifting Black excellence and nurturing the next generation of changemakers.",
-    presenters: [
-      { name: "Greg Fergus", title: "Speaker of the House of Commons of Canada" },
-      { name: "David Smith", title: "Provincial Parliament of Ontario" },
-      { name: "Sandy Hudson", title: "Co-founder of BLM Canada" }
-    ]
-  }
-];
+    presenters: []
+  }],
+  "2024": [
+    {
+      id: "asian-2024",
+      title: "Asian Champions Award",
+      icon: Shield,
+      color: "text-cyc-teal",
+      bgColor: "bg-cyc-teal/10",
+      border: "border-cyc-teal/20",
+      desc: "The Asian Champions Award is designed to honor outstanding individuals of Asian heritage who have demonstrated exceptional leadership, professional excellence, and a steadfast commitment to community service.",
+      presenters: [],
+      winners: [
+        {
+          name: "Li Zhiping (李治平)",
+          title: "Founder of the Toronto Chinese Artist Center",
+          image: "/lizhiping.jpg",
+          desc: "Li ZiPing is a lifelong musician and highly respected arts advocate. As the founder of the Toronto Chinese Artist Center—the largest professional organization for Chinese artists in North America—he has made a profound and lasting impact on the artistic community."
+        },
+        {
+          name: "Winnie Chan",
+          title: "Vice President of Sales Management at Tridel",
+          image: "/winniechan.jpg",
+          desc: "Winnie Chan is the Vice President at Tridel, overseeing a massive portfolio of sustainable land development projects. She is a recognized industry expert who actively champions diversity, equity, and inclusion within the construction sector."
+        },
+        {
+          name: "Rebecca Pang",
+          title: "Vice President of RBC",
+          image: "/rebeccapang.jpeg",
+          desc: "Rebecca Pang is the Vice President of RBC, bringing global expertise from her previous leadership roles at McKinsey & Company, T-Mobile, and China Netcom. She is a dynamic leader who also serves on multiple strategic boards."
+        },
+        {
+          name: "Justin Poy",
+          title: "Founder of the Justin Poy Agency and Philanthropist",
+          image: "/justinpoy.jpg",
+          desc: "Justin Poy is an award-winning advertising entrepreneur and dedicated philanthropist. Incorporating lessons from his own life challenges, he has successfully raised millions of dollars to support hospitals, universities, and charitable organizations across Canada."
+        },
+        {
+          name: "Honourable Mary Ng",
+          title: "Minister of Export Promotion, International Trade and Economic Development",
+          image: "/mary ng.jpeg",
+          desc: "Hon. Mary Ng is a top-performing public sector leader serving as Canada's Minister of Export Promotion, International Trade, and Economic Development. She represents Markham-Thornhill as a Member of Parliament and previously served in the Prime Minister's Office."
+        }
+      ]
+    }
+  ],
+  "2023": [
+    {
+      id: "diversity-2023",
+      title: "Diversity & Inclusion Champions Award",
+      icon: Users,
+      color: "text-cyc-yellow",
+      bgColor: "bg-cyc-yellow/10",
+      border: "border-cyc-yellow/20",
+      desc: "The Diversity and Inclusion Champions Award recognizes leaders who have made profound contributions to fostering inclusive environments.",
+      presenters: [],
+      winners: [
+        {
+          name: "Minister Michael Parsa",
+          title: "Minister of Children, Community, and Social Services",
+          image: "/michaelparsa.jpg",
+          desc: "Minister Michael Parsa actively supports initiatives for at-risk youth and personal mentorship to build inclusive, empowered communities."
+        },
+        {
+          name: "Aldrin Fernando",
+          title: "Principal of Bayview Secondary School",
+          image: "/aldrinfernando.png",
+          desc: "Aldrin Fernando served as the principal of Bayview Secondary School, fostering a diverse community of linguistic and cultural backgrounds. He is deeply committed to connecting with students and staff to promote inclusive learning."
+        }
+      ]
+    },
+    {
+      id: "black-2023",
+      title: "Black Champions Award",
+      icon: Star,
+      color: "text-purple-600",
+      bgColor: "bg-purple-100",
+      border: "border-purple-200",
+      desc: "The Black Champions Award is presented to extraordinary leaders within the Black community who inspire others through their dedication, resilience, and impactful service.",
+      presenters: [],
+      winners: [
+        {
+          name: "Hon. Dr. Jean Augustine",
+          title: "First African-Canadian woman elected to Canada's House of Commons",
+          image: "/jeanaugstine.png",
+          desc: "Hon. Dr. Jean Augustine was the first African-Canadian woman elected to Canada's House of Commons. Her historic achievements include passing the motion to designate February as Black History Month in Canada."
+        },
+        {
+          name: "MPP David Smith",
+          title: "MPP for Scarborough Centre",
+          image: "/davidsmith.jpg",
+          desc: "David Smith is the MPP for Scarborough Centre. With over a decade of experience as a school board trustee, he has been a dedicated advocate for improving the quality of education for students and residents."
+        },
+        {
+          name: "Sandy Hudson",
+          title: "Co-founder of Black Lives Matter Canada",
+          image: "/sandyhudson.jpg",
+          desc: "Sandy Hudson is a prominent activist, author, and co-founder of the Black Lives Matter movement in Canada. She helped found the Black Legal Action Centre and is recognized as one of Canada's most influential voices for justice."
+        },
+        {
+          name: "Greg Fergus",
+          title: "Speaker of the House of Commons of Canada",
+          image: "/gregfergus.jpg",
+          desc: "Greg Fergus is the Speaker of the House of Commons of Canada. With a strong background in public service, he ensures the effective functioning of the House, upholding the principles of parliamentary democracy and fairness."
+        }
+      ]
+    }
+  ]
+};
 
 export default function AwardsPage() {
   const [activeYear, setActiveYear] = useState("2025");
@@ -225,7 +298,7 @@ export default function AwardsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
+      <section className="relative w-full min-h-[95vh] flex items-center justify-start overflow-hidden">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -251,12 +324,11 @@ export default function AwardsPage() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 z-20"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
         >
-          <ChevronDown className="w-10 h-10" />
+        <ChevronDown className="w-12 h-12 text-white/60" strokeWidth={1.5} />
         </motion.div>
       </section>
 
@@ -277,7 +349,26 @@ export default function AwardsPage() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {/* Awards Photo Gallery */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
+          >
+            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+              <Image src="/ceremony.jpg" alt="Award Ceremony" fill className="object-cover" />
+            </motion.div>
+            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg md:translate-y-8">
+              <Image src="/awardsduo.jpg" alt="Award Winners" fill className="object-cover" />
+            </motion.div>
+            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+              <Image src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
+            </motion.div>
+          </motion.div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 border-b border-gray-100 pb-8">
             {years.map((year) => (
               <button
                 key={year}
@@ -308,7 +399,7 @@ export default function AwardsPage() {
             </motion.div>
           )}
 
-          {activeYear !== "2026" && activeYear !== "2025" && (
+          {activeYear !== "2026" && !awardsDataByYear[activeYear] && (
              <motion.div
                initial="hidden"
                animate="visible"
@@ -319,9 +410,9 @@ export default function AwardsPage() {
              </motion.div>
           )}
 
-          {activeYear === "2025" && (
+          {activeYear !== "2026" && awardsDataByYear[activeYear] && (
             <div className="space-y-16 w-full">
-              {awardsData.map((award, index) => (
+              {awardsDataByYear[activeYear].map((award, index) => (
               <motion.div
                 key={award.id}
                 initial="hidden"
@@ -349,7 +440,7 @@ export default function AwardsPage() {
                             Featured Award Presenters
                           </h4>
                           <div className="flex flex-wrap justify-center gap-6">
-                            {award.presenters.map((presenter: any, pIndex) => (
+                            {award.presenters.map((presenter: any, pIndex: number) => (
                               <div key={pIndex} className="flex flex-col w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
                                 <div className="relative w-full aspect-[4/5] bg-gray-100 flex items-center justify-center">
                                   {presenter.image ? (
@@ -407,14 +498,14 @@ export default function AwardsPage() {
                     </div>
 
                     {/* Standard Presenters Sidebar (Text Only) */}
-                    {!award.presenters.some((p: any) => p.image) && (
+                    {award.presenters && award.presenters.length > 0 && !award.presenters.some((p: any) => p.image) && (
                       <div className="md:w-[350px] shrink-0 bg-gray-50 p-8 rounded-3xl border border-gray-100 h-fit">
                         <h4 className="font-bold text-cyc-navy text-lg mb-6 flex items-center gap-2">
                           <UserCheck className="w-5 h-5 text-cyc-teal" />
                           Award Presenters
                         </h4>
                         <ul className="space-y-5">
-                          {award.presenters.map((presenter: any, pIndex) => (
+                          {award.presenters.map((presenter: any, pIndex: number) => (
                             <li key={pIndex} className="flex flex-col">
                               <span className="font-bold text-gray-900">{presenter.name}</span>
                               <span className="text-sm text-gray-500 mt-0.5">{presenter.title}</span>

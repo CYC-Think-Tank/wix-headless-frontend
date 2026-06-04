@@ -6,6 +6,7 @@ import AboutSection from "@/components/AboutSection";
 import ThinkTankSection from "@/components/ThinkTankSection";
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default async function Home() {
   // Keeping the connection logic here so you know it works!
@@ -36,6 +37,21 @@ export default async function Home() {
 
       {/* About & Mission Section */}
       <AboutSection />
+
+      {/* Landing Page Photo Gallery */}
+      <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 pb-24 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+            <Image src="/ceremony.jpg" alt="CYC Award Ceremony" fill className="object-cover object-center" />
+          </div>
+          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+            <Image src="/youthevent.jpg" alt="CYC Youth Event" fill className="object-cover object-center" />
+          </div>
+          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+            <Image src="/awardsduo.jpg" alt="CYC Award Winners" fill className="object-cover object-center" />
+          </div>
+        </div>
+      </section>
 
       {/* Think Tank Section */}
       <ThinkTankSection />

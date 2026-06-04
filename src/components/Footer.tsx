@@ -19,7 +19,7 @@ export default function Footer() {
         {/* Middle Column */}
         <div className="flex flex-col items-center space-y-3">
           <h3 className="font-bold text-base tracking-wide">Follow Us!</h3>
-          <a href="#" className="hover:text-cyc-teal hover:scale-110 transition-all">
+          <a href="https://www.instagram.com/youth.champions/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-cyc-teal hover:scale-110 transition-all">
             <svg 
               className="w-9 h-9" 
               viewBox="0 0 24 24" 

@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { AnimatedCounter } from "@/components/Statistics";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
+    <section className="relative w-full min-h-[95vh] flex items-center justify-start overflow-hidden">
 
       {/* Background Image with Overlay */}
       <div
@@ -16,7 +17,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-slate-950/85"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-8">
 
         {/* Left Content Column */}
         <motion.div
@@ -26,19 +27,19 @@ export default function Hero() {
           className="flex flex-col items-start text-left max-w-2xl"
         >
           {/* Headline */}
-          <h1 className="text-6xl lg:text-7xl text-white tracking-tighter leading-[1.05] mb-6 font-black drop-shadow-md">
+          <h1 className="text-6xl lg:text-7xl text-white tracking-tighter leading-[1.05] mb-4 font-black drop-shadow-md">
             We help young Canadians
             <br />
             <span className="text-cyc-yellow inline-block hover:scale-105 transition-transform cursor-default">shape their future.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl lg:text-2xl text-gray-300 mb-12 font-medium tracking-tight leading-relaxed">
+          <p className="text-lg lg:text-xl text-gray-300 mb-6 font-medium tracking-tight leading-relaxed">
             CYC has helped thousands of Canadian teens maximize their potential by inviting industry experts and uniting passionate students to make an impact.
           </p>
 
           {/* Social Proof / Statistics Inline */}
-          <div className="w-full border-y-2 border-cyc-teal/50 py-6 mb-12 flex flex-row items-center justify-between gap-4">
+          <div className="w-full border-y-2 border-cyc-teal/50 py-4 mb-8 flex flex-row items-center justify-between gap-4">
 
             <div className="flex flex-col items-start">
               <div className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-1">
@@ -69,10 +70,10 @@ export default function Hero() {
 
           {/* CTA */}
           <div className="flex flex-col items-start mt-4">
-            <button className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:-translate-y-1 transition-all duration-300">
+            <Link href="/register" className="flex w-fit items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl hover:-translate-y-1 transition-all duration-300">
               Register Now
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
             <span className="text-sm text-gray-300 font-medium mt-4 ml-2">
               Join a community of driven youth.
             </span>
@@ -82,12 +83,11 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 z-20"
+        animate={{ y: [0, 12, 0] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
-        <ChevronDown className="w-10 h-10" />
+        <ChevronDown className="w-12 h-12 text-white/60" strokeWidth={1.5} />
       </motion.div>
     </section>
   );
