@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import { RegisterButton } from "@/components/RegisterButton";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/Statistics";
