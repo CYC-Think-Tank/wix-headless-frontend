@@ -58,7 +58,7 @@ export default function InternshipProgramPage() {
             <motion.p variants={fadeUp} className="text-xl lg:text-2xl text-gray-300 mb-12 font-medium tracking-tight leading-relaxed">
               Gain hands-on experience, develop the CYC program, and learn directly from leaders in the private and public sectors.
             </motion.p>
-            <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="/register" className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl transition-colors duration-300">
+            <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="mailto:join.us@thecyc.org" className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl transition-colors duration-300">
               Apply Formal Request
               <ArrowRight className="w-5 h-5" />
             </motion.a>
@@ -248,7 +248,7 @@ export default function InternshipProgramPage() {
             Join the CYC Internship Program today and start your journey of personal and professional reflection.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="/register" className="w-full sm:w-auto px-8 py-4 bg-cyc-teal text-cyc-navy font-black text-lg rounded-xl hover:-translate-y-1 transition-all duration-300">
+            <a href="mailto:join.us@thecyc.org" className="w-full sm:w-auto px-8 py-4 bg-cyc-teal text-cyc-navy font-black text-lg rounded-xl hover:-translate-y-1 transition-all duration-300">
               Apply Now
             </a>
           </div>

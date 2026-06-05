@@ -83,11 +83,11 @@ export default function FAQPage() {
         <div className="max-w-4xl mx-auto flex flex-col gap-12">
           
           {/* Tabs */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex bg-gray-200/50 rounded-full p-2 relative">
+          <div className="flex justify-center mb-8 px-2 sm:px-0 w-full">
+            <div className="flex w-full sm:inline-flex sm:w-auto bg-gray-200/50 rounded-full p-2 relative">
               <button
                 onClick={() => setActiveTab("regular")}
-                className={`relative z-10 px-8 py-4 text-lg font-bold rounded-full transition-colors duration-300 ${
+                className={`relative z-10 flex-1 sm:flex-none px-2 sm:px-8 py-3 sm:py-4 text-[13px] sm:text-lg font-bold rounded-full transition-colors duration-300 whitespace-nowrap ${
                   activeTab === "regular" ? "text-white" : "text-gray-600 hover:text-gray-900"
                 }`}
               >
@@ -95,7 +95,7 @@ export default function FAQPage() {
               </button>
               <button
                 onClick={() => setActiveTab("startups")}
-                className={`relative z-10 px-8 py-4 text-lg font-bold rounded-full transition-colors duration-300 ${
+                className={`relative z-10 flex-1 sm:flex-none px-2 sm:px-8 py-3 sm:py-4 text-[13px] sm:text-lg font-bold rounded-full transition-colors duration-300 whitespace-nowrap ${
                   activeTab === "startups" ? "text-white" : "text-gray-600 hover:text-gray-900"
                 }`}
               >
@@ -128,13 +128,13 @@ export default function FAQPage() {
                 variants={fadeUp}
                 className="bg-white p-8 lg:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300"
               >
-                <div className="flex gap-6">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                   <div className="w-12 h-12 bg-cyc-teal/10 rounded-xl flex items-center justify-center shrink-0">
                     <span className="text-cyc-teal font-black text-xl">Q</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-cyc-navy mb-4 leading-tight">{faq.q}</h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">{faq.a}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-cyc-navy mb-3 sm:mb-4 leading-tight">{faq.q}</h3>
+                    <p className="text-gray-600 text-base sm:text-lg leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </motion.div>
