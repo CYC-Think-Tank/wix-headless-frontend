@@ -108,11 +108,9 @@ export default function ServicesPage() {
               </div>
             </motion.div>
 
-            <motion.div variants={scaleIn} className="order-1 lg:order-2 bg-cyc-teal/5 border border-cyc-teal/20 rounded-[2rem] p-12 lg:p-16 flex items-center justify-center min-h-[400px]">
-              <div className="relative">
-                <div className="absolute inset-0 bg-cyc-teal/20 blur-3xl rounded-full scale-150"></div>
-                <BookOpen className="w-48 h-48 text-cyc-teal relative z-10 drop-shadow-xl" strokeWidth={1} />
-              </div>
+            <motion.div variants={scaleIn} className="order-1 lg:order-2 relative rounded-[2rem] overflow-hidden min-h-[400px] h-full w-full shadow-2xl group">
+              <div className="absolute inset-0 bg-cyc-teal/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+              <img src="/internship.jpg" alt="Education & Internships" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </motion.div>
           </motion.div>
 
@@ -125,11 +123,9 @@ export default function ServicesPage() {
             variants={stagger}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            <motion.div variants={scaleIn} className="bg-cyc-yellow/5 border border-cyc-yellow/20 rounded-[2rem] p-12 lg:p-16 flex items-center justify-center min-h-[400px]">
-              <div className="relative">
-                <div className="absolute inset-0 bg-cyc-yellow/20 blur-3xl rounded-full scale-150"></div>
-                <Lightbulb className="w-48 h-48 text-yellow-500 relative z-10 drop-shadow-xl" strokeWidth={1} />
-              </div>
+            <motion.div variants={scaleIn} className="relative rounded-[2rem] overflow-hidden min-h-[400px] h-full w-full shadow-2xl group">
+              <div className="absolute inset-0 bg-cyc-yellow/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+              <img src="/innovationhub.jpg" alt="Innovation Hub" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </motion.div>
 
             <motion.div variants={fadeUp} className="">

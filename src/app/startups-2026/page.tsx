@@ -114,6 +114,23 @@ export default function InnovationHubPage() {
         </div>
       </section>
 
+      {/* Coming Soon Section */}
+      <section className="w-full py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={scaleIn}
+            className="bg-gray-50 p-12 rounded-[2rem] shadow-xl border border-gray-100 relative overflow-hidden group"
+          >
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyc-teal via-cyc-navy to-cyc-yellow group-hover:h-3 transition-all duration-300"></div>
+            <h2 className="text-3xl lg:text-4xl font-black text-cyc-navy mb-4">More Information Coming Soon!</h2>
+            <p className="text-xl text-gray-600">We are actively developing the Progenics Innovation Hub and will be sharing more details, floor plans, and application forms shortly.</p>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
