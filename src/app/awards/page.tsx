@@ -4,6 +4,19 @@ import { fallbackAwardsData } from "./fallbackData";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
+// Helper to parse proprietary Wix image URIs into standard URLs
+function parseWixImage(wixImageStr: string) {
+  if (!wixImageStr || typeof wixImageStr !== "string") return wixImageStr;
+  if (!wixImageStr.startsWith("wix:image://v1/")) return wixImageStr;
+  
+  const parts = wixImageStr.split('/');
+  if (parts.length >= 4) {
+    const uri = parts[3];
+    return `https://static.wixstatic.com/media/${uri}`;
+  }
+  return wixImageStr;
+}
+
 export default async function AwardsPage() {
   let structuredData: Record<string, any[]> = {};
   
@@ -35,8 +48,13 @@ export default async function AwardsPage() {
           structuredData[year] = [];
         }
 
-        const presenters = people.filter((p: any) => p.category === cat.title && p.year === year && p.role === "Presenter");
-        const winners = people.filter((p: any) => p.category === cat.title && p.year === year && p.role === "Winner");
+        const presenters = people
+          .filter((p: any) => p.category === cat.title && p.year === year && p.role === "Presenter")
+          .map((p: any) => ({ ...p, image: parseWixImage(p.image) }));
+          
+        const winners = people
+          .filter((p: any) => p.category === cat.title && p.year === year && p.role === "Winner")
+          .map((p: any) => ({ ...p, image: parseWixImage(p.image) }));
 
         structuredData[year].push({
           id: cat._id,
