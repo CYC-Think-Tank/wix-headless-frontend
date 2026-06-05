@@ -16,6 +16,7 @@ const stagger: Variants = {
 export type FAQItem = {
   _id: string;
   question?: string;
+  title?: string;
   answer?: string;
   category?: string;
 };
@@ -88,7 +89,7 @@ export default function FAQTabs({ faqs }: { faqs: FAQItem[] }) {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-cyc-navy mb-3 sm:mb-4 leading-tight">
-                    {faq.question || "Untitled Question"}
+                    {faq.question || faq.title || "Untitled Question"}
                   </h3>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed whitespace-pre-wrap">
                     {faq.answer || "No answer provided yet."}
