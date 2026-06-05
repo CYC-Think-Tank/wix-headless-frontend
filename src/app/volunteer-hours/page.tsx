@@ -3,8 +3,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { Clock, Award, Users, BookOpen, ChevronDown } from "lucide-react";
+import { Clock, Award, Users, BookOpen, ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { RegisterButton } from "@/components/RegisterButton";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -54,9 +55,10 @@ export default function VolunteerHoursPage() {
               Make an impact in your community while fulfilling your high school volunteer and service hour requirements.
             </motion.p>
             <motion.div variants={fadeUp}>
-              <Link href="/register" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyc-teal hover:bg-teal-500 text-white font-bold text-lg rounded-xl transition-all duration-300 shadow-lg hover:-translate-y-1">
-                Join CYC Today
-              </Link>
+              <RegisterButton className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyc-teal hover:bg-teal-500 text-white font-bold text-lg rounded-xl transition-all duration-300 shadow-lg hover:-translate-y-1">
+                Register Now
+                <ArrowRight className="w-5 h-5" />
+              </RegisterButton>
             </motion.div>
           </motion.div>
         </div>

@@ -4,8 +4,9 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle, Clock } from "lucide-react";
 import { wixClient } from "@/lib/wixClient";
+import { useRegistration } from "@/components/RegistrationContext";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -38,6 +39,14 @@ export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { registrationOpen, registrationClosedDate } = useRegistration();
+
+  let reopenMonthStr = "a later date";
+  if (registrationClosedDate) {
+    const closedDate = new Date(registrationClosedDate);
+    closedDate.setMonth(closedDate.getMonth() + 4);
+    reopenMonthStr = closedDate.toLocaleString('default', { month: 'long' });
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -88,7 +97,18 @@ export default function RegisterPage() {
               <p className="text-gray-500">Please fill out all required fields below to complete your registration.</p>
             </div>
 
-            {isSuccess ? (
+            {!registrationOpen ? (
+              <div className="flex flex-col items-center justify-center text-center py-20">
+                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-8">
+                  <Clock className="w-12 h-12 text-gray-400" />
+                </div>
+                <h3 className="text-3xl font-black text-gray-900 mb-4">Registration is Closed</h3>
+                <p className="text-gray-600 text-lg mb-10 max-w-lg">
+                  We are not currently accepting new registrations for the regular program. 
+                  Please check back in <strong>{reopenMonthStr}</strong> for the next semester!
+                </p>
+              </div>
+            ) : isSuccess ? (
               <div className="flex flex-col items-center justify-center text-center py-20">
                 <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-8">
                   <CheckCircle2 className="w-12 h-12 text-green-600" />

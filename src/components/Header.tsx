@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { RegisterButton } from "@/components/RegisterButton";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,9 +59,9 @@ export default function Header() {
                 <Link href="/volunteer-hours" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors border-b border-gray-50">
                   Volunteer Hours
                 </Link>
-                <Link href="/register" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
-                  Register Now
-                </Link>
+                <RegisterButton className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
+                  Register
+                </RegisterButton>
               </div>
             </div>
           </div>

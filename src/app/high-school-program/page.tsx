@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { CheckCircle2, Rocket, Megaphone, Briefcase, GraduationCap, Users, Trophy, ArrowRight, Calendar, Star, Presentation, Handshake, ChevronDown } from "lucide-react";
+import { RegisterButton } from "@/components/RegisterButton";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -64,10 +65,12 @@ export default function HighSchoolProgramPage() {
             <motion.p variants={fadeUp} className="text-xl lg:text-2xl text-gray-300 mb-12 font-medium tracking-tight leading-relaxed">
               A semester-based innovation and leadership initiative designed to empower students to create meaningful, community-focused solutions to real-world challenges.
             </motion.p>
-            <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="/register" className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl transition-colors duration-300">
-              Apply Now
-              <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            <motion.div variants={fadeUp} whileHover={{ y: -4 }}>
+              <RegisterButton className="flex items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl transition-colors duration-300">
+                Apply Now
+                <ArrowRight className="w-5 h-5" />
+              </RegisterButton>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -407,10 +410,12 @@ export default function HighSchoolProgramPage() {
           <motion.p variants={fadeUp} className="text-xl text-gray-600 mb-10">
             Join the next semester of the CYC High School Program and start building your future today.
           </motion.p>
-          <motion.a variants={fadeUp} whileHover={{ y: -4 }} href="/register" className="inline-flex items-center gap-3 px-10 py-5 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-black text-xl rounded-2xl transition-colors duration-300">
-            Apply for the Program
-            <ArrowRight className="w-6 h-6" />
-          </motion.a>
+          <motion.div variants={fadeUp} whileHover={{ y: -4 }}>
+            <RegisterButton className="inline-flex items-center gap-3 px-10 py-5 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-black text-xl rounded-2xl transition-colors duration-300">
+              Apply for the Program
+              <ArrowRight className="w-6 h-6" />
+            </RegisterButton>
+          </motion.div>
         </div>
       </motion.section>
 

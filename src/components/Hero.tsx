@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { RegisterButton } from "@/components/RegisterButton";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/Statistics";
 
@@ -70,10 +71,10 @@ export default function Hero() {
 
           {/* CTA */}
           <div className="flex flex-col items-start mt-4">
-            <Link href="/register" className="flex w-fit items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl hover:-translate-y-1 transition-all duration-300">
+            <RegisterButton className="flex w-fit items-center justify-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold text-lg rounded-xl hover:-translate-y-1 transition-all duration-300">
               Register Now
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </RegisterButton>
             <span className="text-sm text-gray-300 font-medium mt-4 ml-2">
               Join a community of driven youth.
             </span>
