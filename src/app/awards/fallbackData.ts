@@ -1,11 +1,9 @@
-import { Trophy, Globe, Heart, Users, Shield, Star } from "lucide-react";
-
 export const fallbackAwardsData: Record<string, any[]> = {
   "2025": [
   {
     id: "canadian",
     title: "Canadian Champions Award",
-    icon: Globe,
+    iconName: "Globe",
     color: "text-red-600",
     bgColor: "bg-red-50",
     border: "border-red-100",
@@ -84,7 +82,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
   {
     id: "asian",
     title: "Asian Champions Award",
-    icon: Shield,
+    iconName: "Shield",
     color: "text-cyc-teal",
     bgColor: "bg-cyc-teal/10",
     border: "border-cyc-teal/20",
@@ -107,7 +105,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
   {
     id: "women",
     title: "Women Champions Award",
-    icon: Heart,
+    iconName: "Heart",
     color: "text-pink-600",
     bgColor: "bg-pink-50",
     border: "border-pink-100",
@@ -126,7 +124,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
   {
     id: "diversity",
     title: "Diversity and Inclusion Champions Award",
-    icon: Users,
+    iconName: "Users",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     border: "border-purple-100",
@@ -140,7 +138,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
   {
     id: "black",
     title: "Black Champions Award",
-    icon: Trophy,
+    iconName: "Trophy",
     color: "text-cyc-yellow",
     bgColor: "bg-cyc-yellow/10",
     border: "border-cyc-yellow/20",
@@ -151,7 +149,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
     {
       id: "asian-2024",
       title: "Asian Champions Award",
-      icon: Shield,
+      iconName: "Shield",
       color: "text-cyc-teal",
       bgColor: "bg-cyc-teal/10",
       border: "border-cyc-teal/20",
@@ -195,7 +193,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
     {
       id: "diversity-2023",
       title: "Diversity & Inclusion Champions Award",
-      icon: Users,
+      iconName: "Users",
       color: "text-cyc-yellow",
       bgColor: "bg-cyc-yellow/10",
       border: "border-cyc-yellow/20",
@@ -219,7 +217,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
     {
       id: "black-2023",
       title: "Black Champions Award",
-      icon: Star,
+      iconName: "Star",
       color: "text-purple-600",
       bgColor: "bg-purple-100",
       border: "border-purple-200",
