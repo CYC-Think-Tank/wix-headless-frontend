@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Canadian Youth Champions | CYC",
   description: "Empowering youth through community service, innovation, and leadership.",
   icons: {
-    icon: "/logo.png",
+    icon: "/logo copy.png",
   },
 };
 
