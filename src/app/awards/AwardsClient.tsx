@@ -152,7 +152,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
             ))}
           </div>
 
-          {activeYear === "2026" && (
+          {activeYear === "2026" && (!currentAwards || currentAwards.length === 0) && (
             <motion.div
               initial="hidden"
               animate="visible"
@@ -167,7 +167,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
             </motion.div>
           )}
 
-          {activeYear !== "2026" && !currentAwards && (
+          {activeYear !== "2026" && (!currentAwards || currentAwards.length === 0) && (
              <motion.div
                initial="hidden"
                animate="visible"
@@ -178,7 +178,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
              </motion.div>
           )}
 
-          {activeYear !== "2026" && currentAwards && (
+          {currentAwards && currentAwards.length > 0 && (
             <div className="space-y-16 w-full">
               {currentAwards.map((award, index) => {
                 const IconComponent = award.icon || Trophy;
