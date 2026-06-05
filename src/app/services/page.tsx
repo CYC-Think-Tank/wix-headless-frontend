@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, BookOpen, Presentation, Users, Briefcase, Lightbulb, TrendingUp, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -110,7 +111,7 @@ export default function ServicesPage() {
 
             <motion.div variants={scaleIn} className="order-1 lg:order-2 relative rounded-[2rem] overflow-hidden min-h-[400px] h-full w-full shadow-2xl group">
               <div className="absolute inset-0 bg-cyc-teal/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-              <img src="/internship.jpg" alt="Education & Internships" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/internship.jpg" alt="Education & Internships" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </motion.div>
           </motion.div>
 
@@ -125,7 +126,7 @@ export default function ServicesPage() {
           >
             <motion.div variants={scaleIn} className="relative rounded-[2rem] overflow-hidden min-h-[400px] h-full w-full shadow-2xl group">
               <div className="absolute inset-0 bg-cyc-yellow/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-              <img src="/innovationhub.jpg" alt="Innovation Hub" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/innovationhub.jpg" alt="Innovation Hub" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </motion.div>
 
             <motion.div variants={fadeUp} className="">

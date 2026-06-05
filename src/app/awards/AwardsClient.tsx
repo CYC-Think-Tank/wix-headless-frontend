@@ -126,13 +126,13 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
           >
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <Image src="/ceremony.jpg" alt="Award Ceremony" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony.jpg" alt="Award Ceremony" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg md:translate-y-8">
-              <Image src="/awardsduo.jpg" alt="Award Winners" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/awardsduo.jpg" alt="Award Winners" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <Image src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
             </motion.div>
           </motion.div>
 
@@ -214,7 +214,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
                                 <div key={pIndex} className="flex flex-col w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
                                   <div className="relative w-full aspect-[4/5] bg-gray-100 flex items-center justify-center">
                                     {presenter.image ? (
-                                      <Image src={presenter.image} alt={presenter.name} fill className="object-cover object-top" />
+                                      <Image sizes="(max-width: 768px) 100vw, 33vw" src={presenter.image} alt={presenter.name} fill className="object-cover object-top" />
                                     ) : (
                                       <span className="text-gray-400 font-bold text-sm">Image Unavailable</span>
                                     )}
@@ -246,7 +246,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
                                 <div key={wIndex} className="flex flex-col w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-sm bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300">
                                   <div className="relative w-full aspect-[4/5] bg-gray-100 flex items-center justify-center">
                                     {winner.image ? (
-                                      <Image src={winner.image} alt={winner.name} fill className="object-cover object-top" />
+                                      <Image sizes="(max-width: 768px) 100vw, 33vw" src={winner.image} alt={winner.name} fill className="object-cover object-top" />
                                     ) : (
                                       <span className="text-gray-400 font-bold text-sm">Image Unavailable</span>
                                     )}
