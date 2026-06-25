@@ -123,16 +123,13 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24"
           >
-            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony.jpg" alt="Award Ceremony" fill className="object-cover" />
-            </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg md:translate-y-8">
-              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/presentation.jpg" alt="Students Presenting on a CYC Champion" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/presentation.jpg" alt="Students Presenting on a CYC Champion" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
             </motion.div>
           </motion.div>
 

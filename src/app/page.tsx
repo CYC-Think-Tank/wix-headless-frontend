@@ -40,15 +40,12 @@ export default async function Home() {
 
       {/* Landing Page Photo Gallery */}
       <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 pb-24 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony.jpg" alt="CYC Award Ceremony" fill className="object-cover object-center" />
+            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/homepage.jpeg" alt="CYC Community Event" fill className="object-cover object-center" />
           </div>
           <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 33vw" src="/youthevent.jpg" alt="CYC Youth Event" fill className="object-cover object-center" />
-          </div>
-          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 33vw" src="/youthevent2.JPG" alt="CYC Youth Workshop" fill className="object-cover object-center" />
+            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/youthevent.jpg" alt="CYC Youth Event" fill className="object-cover object-center" />
           </div>
         </div>
       </section>

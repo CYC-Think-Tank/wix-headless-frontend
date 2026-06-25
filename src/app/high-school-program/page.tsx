@@ -140,6 +140,9 @@ export default function HighSchoolProgramPage() {
                   Every team is led by a <strong className="text-cyc-navy">Team Lead</strong> — a returning alumnus of the CYC program who takes on a larger mentorship and leadership role. In addition, each team designates three specialized &quot;captains&quot; responsible for overseeing the program&apos;s three core pillars: STEM, Marketing, and Business. Other team members contribute as assistants or officers.
                 </p>
               </motion.div>
+              <motion.div variants={scaleIn} className="relative w-full aspect-video rounded-3xl overflow-hidden mt-8 shadow-sm border border-gray-100">
+                <Image sizes="(max-width: 768px) 100vw, 66vw" src="/youthevent2.JPG" alt="CYC students collaborating during a program session" fill className="object-cover" />
+              </motion.div>
             </motion.div>
           </motion.div>
 

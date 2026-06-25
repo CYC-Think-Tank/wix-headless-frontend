@@ -84,6 +84,9 @@ export default function Header() {
             </div>
           </div>
 
+          <Link href="/think-tank" className={`${inactiveTextColor} ${hoverColor} transition-colors duration-300 drop-shadow-sm`}>
+            Think Tank
+          </Link>
           <Link href="/awards" className={`${inactiveTextColor} ${hoverColor} transition-colors duration-300 drop-shadow-sm`}>
             Awards
           </Link>
