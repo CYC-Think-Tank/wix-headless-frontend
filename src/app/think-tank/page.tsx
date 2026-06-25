@@ -226,7 +226,7 @@ export default function ThinkTankPage() {
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyc-teal via-cyc-navy to-cyc-yellow group-hover:h-3 transition-all duration-300"></div>
             <h2 className="text-3xl lg:text-4xl font-black text-cyc-navy mb-4">Join the Conversation</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Applications for the next Think Tank cohort open each semester. Visit the Think Tank website to learn how you can contribute your ideas.
+              Visit the Think Tank website to learn how you can contribute your ideas.
             </p>
             <a
               href="https://thinktank.thecyc.org"
