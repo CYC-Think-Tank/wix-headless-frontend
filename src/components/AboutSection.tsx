@@ -40,8 +40,8 @@ export default function AboutSection() {
           className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(10,37,64,0.15)] border border-gray-100 bg-gray-50"
         >
           <Image
-            src="/high-school.jpg"
-            alt="CYC High School Program Awards"
+            src="/new2.jpeg"
+            alt="CYC Community Event Group Photo"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-center"

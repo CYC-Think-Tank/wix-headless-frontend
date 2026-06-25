@@ -47,9 +47,9 @@ export default function HighSchoolProgramPage() {
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+          style={{ backgroundImage: "url('/high-school.jpg')" }}
         >
-          <div className="absolute inset-0 bg-slate-950/85"></div>
+          <div className="absolute inset-0 bg-slate-950/70"></div>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-20">

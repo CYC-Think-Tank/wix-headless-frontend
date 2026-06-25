@@ -15,9 +15,6 @@ export default function ThinkTankSection() {
           transition={{ duration: 0.6 }}
           className="flex-1 space-y-6"
         >
-          <div className="inline-block px-4 py-1.5 bg-cyc-yellow/20 text-yellow-700 font-bold rounded-full text-sm uppercase tracking-wider">
-            Think Tank
-          </div>
           <h2 className="text-4xl md:text-5xl font-black text-cyc-navy tracking-tight leading-tight">
             CYC Think Tank
           </h2>
