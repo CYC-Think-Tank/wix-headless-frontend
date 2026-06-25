@@ -6,7 +6,6 @@ import { motion, Variants } from "framer-motion";
 import {
   ArrowRight,
   ChevronDown,
-  Lightbulb,
   FileText,
   Search,
   Handshake,
@@ -59,11 +58,6 @@ export default function ThinkTankPage() {
             variants={stagger}
             className="flex flex-col items-start text-left max-w-3xl"
           >
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 bg-cyc-yellow/20 text-cyc-yellow font-bold rounded-full text-sm uppercase tracking-wider mb-8">
-              <Lightbulb className="w-4 h-4" />
-              CYC Initiative
-            </motion.div>
-
             <motion.h1 variants={fadeUp} className="text-6xl lg:text-7xl text-white tracking-tighter leading-[1.05] mb-6 font-black drop-shadow-md">
               CYC<br />Think Tank
             </motion.h1>
@@ -115,7 +109,7 @@ export default function ThinkTankPage() {
               { Icon: Search, title: "Community Research", desc: "We gather data, run surveys, and document community needs to ground every proposal in real-world evidence.", color: "bg-cyc-teal/10 text-cyc-teal" },
               { Icon: Handshake, title: "Industry Partnerships", desc: "We connect students with academics, public leaders, and industry experts who mentor projects and open doors.", color: "bg-blue-50 text-blue-600" },
             ].map((item, i) => (
-              <motion.div key={i} variants={scaleIn} className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 rounded-[2rem] p-10 relative z-0 hover:z-10 hover:scale-[1.05] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-all duration-400 ease-out group">
+              <motion.div key={i} variants={scaleIn} whileHover={{ y: -8, scale: 1.05 }} className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 rounded-[2rem] p-10 relative z-0 hover:z-10 hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] transition-shadow duration-400 ease-out group">
                 <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mb-8`}>
                   <item.Icon className="w-8 h-8" />
                 </div>
@@ -157,7 +151,7 @@ export default function ThinkTankPage() {
               { Icon: Landmark, title: "Civic Engagement", desc: "Boosting youth participation in democracy, from voter education to accessible community consultation.", color: "bg-purple-50 text-purple-600" },
               { Icon: Users, title: "Health & Wellbeing", desc: "Mental health access, digital wellbeing, and community support systems for students across the country.", color: "bg-pink-50 text-pink-600" },
             ].map((item, i) => (
-              <motion.div key={i} variants={scaleIn} className="flex gap-6 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 rounded-[2rem] p-8 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300">
+              <motion.div key={i} variants={scaleIn} whileHover={{ y: -4 }} className="flex gap-6 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 rounded-[2rem] p-8 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-shadow duration-300">
                 <div className={`w-14 h-14 shrink-0 ${item.color} rounded-2xl flex items-center justify-center`}>
                   <item.Icon className="w-7 h-7" />
                 </div>
