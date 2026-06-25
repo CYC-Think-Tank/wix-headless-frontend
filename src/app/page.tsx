@@ -43,7 +43,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           {/* Picture (Left) */}
           <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/homepage.jpeg" alt="CYC Community Event" fill className="object-cover object-center" />
+            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/homepage.jpeg" alt="CYC Community Event" fill className="object-cover object-center scale-110" />
           </div>
           {/* Our Mission and Vision (Right) */}
           <div className="bg-cyc-navy rounded-3xl p-10 lg:p-12 shadow-[0_20px_50px_rgba(10,37,64,0.15)] relative overflow-hidden flex items-center">

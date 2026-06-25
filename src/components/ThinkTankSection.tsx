@@ -25,9 +25,9 @@ export default function ThinkTankSection() {
             href="https://thinktank.thecyc.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-fit items-center gap-3 px-8 py-4 bg-white border border-gray-200 text-cyc-navy font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 mt-4"
+            className="flex w-fit items-center gap-3 px-8 py-4 bg-cyc-teal hover:bg-[#00cce6] text-cyc-navy font-bold rounded-xl hover:-translate-y-1 transition-all duration-300 mt-4"
           >
-            Learn More
+            Visit the Think Tank
             <ArrowRight className="w-5 h-5" />
           </a>
         </motion.div>
