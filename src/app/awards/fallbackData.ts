@@ -73,7 +73,7 @@ export const fallbackAwardsData: Record<string, any[]> = {
       },
       {
         name: "Frank Chau",
-        title: "President of the Yee Hong Community Wellness Foundation",
+        title: "Special Advisor to the Mon Sheong Foundation",
         image: "/frankchau.jpg",
         desc: "Frank Chau is a Special Advisor to the Mon Sheong Foundation who led the development of Mississauga Chinatown and helped expand BMO into Asia. His visionary leadership has left a lasting impact on business and the Chinese Canadian community."
       }

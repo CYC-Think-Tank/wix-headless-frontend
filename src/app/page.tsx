@@ -45,7 +45,7 @@ export default async function Home() {
             <Image sizes="(max-width: 768px) 100vw, 50vw" src="/homepage.jpeg" alt="CYC Community Event" fill className="object-cover object-center" />
           </div>
           <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/youthevent.jpg" alt="CYC Youth Event" fill className="object-cover object-center" />
+            <Image sizes="(max-width: 768px) 100vw, 50vw" src="/high-school.jpg" alt="CYC High School Program Awards" fill className="object-cover object-center" />
           </div>
         </div>
       </section>
