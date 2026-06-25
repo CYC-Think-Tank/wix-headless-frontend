@@ -17,10 +17,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.thecyc.org"),
   title: "Canadian Youth Champions | CYC",
   description: "Empowering youth through community service, innovation, and leadership.",
   icons: {
     icon: "/logo copy.png",
+  },
+  openGraph: {
+    title: "Canadian Youth Champions | CYC",
+    description: "Empowering youth through community service, innovation, and leadership.",
+    url: "https://www.thecyc.org",
+    siteName: "Canadian Youth Champions",
+    type: "website",
+    locale: "en_CA",
+    images: [
+      {
+        url: "/logo.png",
+        width: 430,
+        height: 240,
+        alt: "Canadian Youth Champions (CYC) logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Canadian Youth Champions | CYC",
+    description: "Empowering youth through community service, innovation, and leadership.",
+    images: ["/logo.png"],
   },
 };
 

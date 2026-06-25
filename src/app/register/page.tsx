@@ -82,8 +82,8 @@ export default function RegisterPage() {
 
       <section className="relative w-full min-h-[100vh] flex items-center justify-center pt-32 pb-24 px-6 lg:px-8">
         {/* Background Elements */}
-        <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-cyc-teal/10 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-        <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-cyc-yellow/10 rounded-full blur-[80px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+        <div className="hidden md:block fixed top-0 right-0 w-[600px] h-[600px] bg-cyc-teal/10 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+        <div className="hidden md:block fixed bottom-0 left-0 w-[500px] h-[500px] bg-cyc-yellow/10 rounded-full blur-[80px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

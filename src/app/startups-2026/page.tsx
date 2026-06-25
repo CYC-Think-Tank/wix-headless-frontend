@@ -36,8 +36,8 @@ export default function InnovationHubPage() {
         </div>
 
         {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyc-yellow/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/4 z-10"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyc-teal/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4 z-10"></div>
+        <div className="hidden md:block absolute top-0 right-0 w-[800px] h-[800px] bg-cyc-yellow/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/4 z-10"></div>
+        <div className="hidden md:block absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyc-teal/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/4 translate-y-1/4 z-10"></div>
 
         <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20">
           <motion.div

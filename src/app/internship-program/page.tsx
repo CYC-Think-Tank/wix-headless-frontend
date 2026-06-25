@@ -239,8 +239,8 @@ export default function InternshipProgramPage() {
 
       {/* CTA Section */}
       <section className="w-full bg-cyc-navy py-32 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyc-teal/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyc-yellow/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+        <div className="hidden md:block absolute top-0 right-0 w-[800px] h-[800px] bg-cyc-teal/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+        <div className="hidden md:block absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyc-yellow/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8 tracking-tight">Ready to gain real-world experience?</h2>

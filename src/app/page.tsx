@@ -19,11 +19,11 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-white relative font-sans text-gray-900 selection:bg-cyc-teal/30 selection:text-cyc-navy">
-      {/* Background Decorative Blobs */}
+      {/* Background Decorative Blobs - Hidden on mobile due to massive GPU overhead from CSS blur */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none flex justify-center z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-cyc-navy/5 blur-[120px]" />
-        <div className="absolute top-[20%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyc-teal/5 blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] rounded-full bg-cyc-yellow/5 blur-[150px]" />
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-cyc-navy/5 blur-[120px]" />
+        <div className="hidden md:block absolute top-[20%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyc-teal/5 blur-[120px]" />
+        <div className="hidden md:block absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] rounded-full bg-cyc-yellow/5 blur-[150px]" />
       </div>
 
       {/* Top Navigation */}
@@ -48,7 +48,7 @@ export default async function Home() {
             <Image sizes="(max-width: 768px) 100vw, 33vw" src="/youthevent.jpg" alt="CYC Youth Event" fill className="object-cover object-center" />
           </div>
           <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
-            <Image sizes="(max-width: 768px) 100vw, 33vw" src="/awardsduo.jpg" alt="CYC Award Winners" fill className="object-cover object-center" />
+            <Image sizes="(max-width: 768px) 100vw, 33vw" src="/youthevent2.JPG" alt="CYC Youth Workshop" fill className="object-cover object-center" />
           </div>
         </div>
       </section>

@@ -129,7 +129,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
               <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony.jpg" alt="Award Ceremony" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg md:translate-y-8">
-              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/awardsduo.jpg" alt="Award Winners" fill className="object-cover" />
+              <Image sizes="(max-width: 768px) 100vw, 33vw" src="/presentation.jpg" alt="Students Presenting on a CYC Champion" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
               <Image sizes="(max-width: 768px) 100vw, 33vw" src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
@@ -169,6 +169,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
 
           {activeYear !== "2026" && (!currentAwards || currentAwards.length === 0) && (
              <motion.div
+               key={activeYear}
                initial="hidden"
                animate="visible"
                variants={scaleIn}
@@ -179,17 +180,21 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
           )}
 
           {currentAwards && currentAwards.length > 0 && (
-            <div className="space-y-16 w-full">
+            <motion.div
+              key={activeYear}
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+              className="space-y-16 w-full"
+            >
               {currentAwards.map((award, index) => {
                 const IconComponent = award.icon || Trophy;
                 return (
                 <motion.div
                   key={award.id}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px", amount: 0.05 }}
                   variants={scaleIn}
-                  className={`bg-white rounded-[2rem] border ${award.border} shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-400`}
+                  whileHover={{ y: -8 }}
+                  className={`bg-white rounded-[2rem] border ${award.border} shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-shadow duration-300`}
                 >
                   <div className="p-10 md:p-12">
                     <div className="flex flex-col md:flex-row gap-8 md:gap-12">
@@ -289,7 +294,7 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
                 </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           )}
         </div>
       </section>

@@ -342,8 +342,8 @@ export default function HighSchoolProgramPage() {
             variants={scaleIn}
             className="bg-cyc-navy text-white rounded-[3rem] p-12 md:p-20 overflow-hidden relative"
           >
-            <div className="absolute top-[-20%] right-[-10%] w-80 h-80 bg-cyc-teal/20 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute bottom-[-20%] left-[-5%] w-64 h-64 bg-cyc-yellow/10 rounded-full blur-[80px] pointer-events-none"></div>
+            <div className="hidden md:block absolute top-[-20%] right-[-10%] w-80 h-80 bg-cyc-teal/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="hidden md:block absolute bottom-[-20%] left-[-5%] w-64 h-64 bg-cyc-yellow/10 rounded-full blur-[80px] pointer-events-none"></div>
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
                 <motion.div
