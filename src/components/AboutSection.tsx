@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
@@ -30,30 +31,21 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        {/* Our Mission (Right Column) */}
+        {/* Photo (Right Column) */}
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-cyc-navy rounded-3xl p-10 lg:p-12 shadow-[0_20px_50px_rgba(10,37,64,0.15)] relative overflow-hidden"
+          className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(10,37,64,0.15)] border border-gray-100 bg-gray-50"
         >
-          {/* Decorative background glow inside the card */}
-          <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-cyc-teal/20 rounded-full blur-3xl pointer-events-none"></div>
-          
-          <div className="relative z-10">
-            <div className="w-12 h-12 bg-cyc-teal rounded-2xl flex items-center justify-center mb-8 shadow-lg text-cyc-navy">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-black text-white mb-4 tracking-tight">
-              Our Mission and Vision
-            </h2>
-            <p className="text-xl text-blue-50/90 leading-relaxed font-medium">
-              Our mission is to help youth find their purpose, passions & place in our community through learning opportunities & experiences. We believe that everyone can make a difference in our community!
-            </p>
-          </div>
+          <Image
+            src="/high-school.jpg"
+            alt="CYC High School Program Awards"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center"
+          />
         </motion.div>
 
       </div>

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function ThinkTankSection() {
   return (
@@ -20,18 +19,20 @@ export default function ThinkTankSection() {
             Think Tank
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-cyc-navy tracking-tight leading-tight">
-            Research & Innovation
+            CYC Think Tank
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            The CYC Think Tank is an initiative dedicated to exploring new ideas, developing policy recommendations, and researching solutions to community challenges. Join our network of young leaders and industry experts to shape the future.
+            A youth-led initiative dedicated to exploring new ideas, developing policy recommendations, and researching practical solutions to the challenges facing Canadian communities.
           </p>
-          <Link
-            href="/think-tank"
+          <a
+            href="https://thinktank.thecyc.org"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex w-fit items-center gap-3 px-8 py-4 bg-white border border-gray-200 text-cyc-navy font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 mt-4"
           >
             Learn More
             <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </motion.div>
 
         <motion.div
