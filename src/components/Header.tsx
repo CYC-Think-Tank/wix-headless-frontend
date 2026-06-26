@@ -83,7 +83,7 @@ export default function Header() {
                 <Link href="/startups-2026" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors border-b border-gray-50">
                   Innovation Hub
                 </Link>
-                <Link href="/faq" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
+                <Link href="/innovation-hub-faq" className="px-5 py-3 text-sm font-bold text-cyc-navy hover:text-cyc-teal hover:bg-gray-50 transition-colors">
                   FAQ
                 </Link>
               </div>

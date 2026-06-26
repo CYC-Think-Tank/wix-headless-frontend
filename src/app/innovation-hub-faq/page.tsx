@@ -6,7 +6,7 @@ import { wixClient } from "@/lib/wixClient";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function FAQPage() {
+export default async function InnovationHubFAQPage() {
   let faqs: FAQItem[] = [];
 
   try {
@@ -20,8 +20,8 @@ export default async function FAQPage() {
     // On failure (like missing permissions), we pass an empty array to show the empty state gracefully
   }
 
-  // High School Program FAQs — regular program (uncategorized items default to regular)
-  const regularFAQs = faqs.filter(f => !f.category || f.category.toLowerCase() === "regular");
+  // Innovation Hub (University) FAQs
+  const startupsFAQs = faqs.filter(f => f.category?.toLowerCase() === "startups");
 
   return (
     <main className="flex min-h-screen flex-col bg-white relative font-sans text-gray-900 selection:bg-cyc-teal/30 selection:text-cyc-navy">
@@ -29,18 +29,18 @@ export default async function FAQPage() {
 
       {/* Hero Section */}
       <section className="relative w-full pt-40 pb-20 px-6 lg:px-8 bg-cyc-navy overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: "url('/hero-bg.jpg')" }}></div>
+        <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: "url('/innovationhub.jpg')" }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyc-navy z-0"></div>
         <AnimatedFAQHero
-          title="High School Program FAQ"
-          subtitle="Find answers to common questions about the CYC High School Program, volunteering, and community involvement hours."
+          title="Innovation Hub FAQ"
+          subtitle="Find answers to common questions about the CYC Innovation Hub and its startup programs."
         />
       </section>
 
       {/* FAQ Section */}
       <section className="w-full py-24 px-6 lg:px-8 bg-gray-50 flex-grow">
         <div className="max-w-4xl mx-auto flex flex-col gap-12">
-          <FAQList faqs={regularFAQs} />
+          <FAQList faqs={startupsFAQs} />
         </div>
       </section>
 
