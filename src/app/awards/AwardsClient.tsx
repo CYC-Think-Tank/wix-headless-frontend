@@ -125,8 +125,8 @@ export default function AwardsClient({ initialData }: { initialData: Record<stri
             variants={stagger}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24"
           >
-            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg md:translate-y-8">
-              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/presentation.jpg" alt="Students Presenting on a CYC Champion" fill className="object-cover" />
+            <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+              <Image sizes="(max-width: 768px) 100vw, 50vw" src="/photoooo.jpg" alt="Students Presenting on a CYC Champion" fill className="object-cover" />
             </motion.div>
             <motion.div variants={scaleIn} className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
               <Image sizes="(max-width: 768px) 100vw, 50vw" src="/ceremony2.jpg" alt="Award Ceremony Audience" fill className="object-cover" />
