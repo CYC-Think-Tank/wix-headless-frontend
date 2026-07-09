@@ -44,10 +44,6 @@ export default function VolunteerHoursPage() {
             variants={stagger}
             className="flex flex-col items-start text-left max-w-3xl"
           >
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 bg-cyc-teal/20 text-cyc-teal font-bold rounded-full text-sm uppercase tracking-wider mb-8">
-              <Clock className="w-4 h-4" />
-              Give Back, Get Rewarded
-            </motion.div>
             <motion.h1 variants={fadeUp} className="text-5xl lg:text-7xl text-white tracking-tighter leading-[1.05] mb-6 font-black drop-shadow-md">
               Earn Volunteer Hours
             </motion.h1>

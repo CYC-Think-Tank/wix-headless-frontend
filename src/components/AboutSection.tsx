@@ -15,9 +15,6 @@ export default function AboutSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block px-4 py-1.5 bg-cyc-teal/10 text-cyc-teal font-bold rounded-full text-sm mb-6 uppercase tracking-wider">
-            Who We Are
-          </div>
           <h2 className="text-4xl lg:text-5xl font-black text-cyc-navy mb-6 tracking-tight leading-tight">
             About Us
           </h2>

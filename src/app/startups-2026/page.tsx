@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Users, TrendingUp, Building, Rocket, ChevronDown } from "lucide-react";
+import { ArrowRight, Users, TrendingUp, Building, ChevronDown } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -46,11 +46,6 @@ export default function InnovationHubPage() {
             variants={stagger}
             className="flex flex-col items-start text-left max-w-3xl"
           >
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 bg-cyc-yellow/20 text-cyc-yellow font-bold rounded-full text-sm uppercase tracking-wider mb-8">
-              <Rocket className="w-4 h-4" />
-              Summer 2026 Initiative
-            </motion.div>
-            
             <motion.h1 variants={fadeUp} className="text-6xl lg:text-7xl text-white tracking-tighter leading-[1.05] mb-6 font-black drop-shadow-md">
               CYC<br />Innovation Hub
             </motion.h1>

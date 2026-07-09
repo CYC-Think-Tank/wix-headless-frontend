@@ -50,11 +50,11 @@ export default async function AwardsPage() {
 
         const presenters = people
           .filter((p: any) => p.category === cat.title && p.year === year && p.role === "Presenter")
-          .map((p: any) => ({ ...p, image: parseWixImage(p.image) }));
-          
+          .map((p: any) => ({ ...p, image: parseWixImage(p.image), desc: p.desc ?? p.description }));
+
         const winners = people
           .filter((p: any) => p.category === cat.title && p.year === year && p.role === "Winner")
-          .map((p: any) => ({ ...p, image: parseWixImage(p.image) }));
+          .map((p: any) => ({ ...p, image: parseWixImage(p.image), desc: p.desc ?? p.description }));
 
         structuredData[year].push({
           id: cat._id,
