@@ -87,14 +87,25 @@ export default async function Home() {
           <p className="text-lg text-gray-600 leading-relaxed">
             CYC is sponsored by <span className="font-semibold text-cyc-navy">Hays Group</span> and <span className="font-semibold text-cyc-navy">HealthcareJob.Agency</span>.
           </p>
-          <div className="relative mx-auto mt-8 aspect-video w-full max-w-2xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-            <Image
-              src="/sponsor.jpeg"
-              alt="CYC Sponsors — Hays Group and HealthcareJob.Agency"
-              fill
-              sizes="(max-width: 768px) 100vw, 672px"
-              className="object-contain"
-            />
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center justify-center gap-6 sm:flex-row">
+            <div className="relative aspect-video w-full flex-1 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <Image
+                src="/sponsor.jpeg"
+                alt="CYC Sponsors — Hays Group and HealthcareJob.Agency"
+                fill
+                sizes="(max-width: 640px) 100vw, 336px"
+                className="rounded-2xl object-cover"
+              />
+            </div>
+            <div className="relative aspect-video w-full flex-1 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              <Image
+                src="/healthcarejobagencylogo.png"
+                alt="HealthcareJob.Agency"
+                fill
+                sizes="(max-width: 640px) 100vw, 336px"
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
