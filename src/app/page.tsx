@@ -46,7 +46,7 @@ export default async function Home() {
             <Image sizes="(max-width: 768px) 100vw, 50vw" src="/homepage.jpeg" alt="CYC Community Event" fill className="object-cover object-center scale-110" />
           </div>
           {/* Our Mission and Vision (Right) */}
-          <div className="bg-cyc-navy rounded-3xl p-10 lg:p-12 shadow-[0_20px_50px_rgba(10,37,64,0.15)] relative overflow-hidden flex items-center">
+          <div className="bg-cyc-navy rounded-3xl p-10 lg:p-12 shadow-[0_20px_50px_rgba(10,37,64,0.15)] relative overflow-hidden flex flex-col justify-center">
             <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-cyc-teal/20 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10">
               <div className="w-12 h-12 bg-cyc-teal rounded-2xl flex items-center justify-center mb-8 shadow-lg text-cyc-navy">
@@ -54,10 +54,21 @@ export default async function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-black text-white mb-4 tracking-tight">Our Mission and Vision</h2>
-              <p className="text-xl text-blue-50/90 leading-relaxed font-medium">
-                Our mission is to help youth find their purpose, passions & place in our community through learning opportunities & experiences. We believe that everyone can make a difference in our community!
+              <h2 className="text-2xl font-black text-white mb-4 tracking-tight">Our Mission &amp; Vision</h2>
+              <p className="text-lg text-blue-50/90 leading-relaxed font-medium mb-8">
+                Our mission is to help youth discover their purpose, passions, and place in our community through mentorship and leadership. We believe everyone has the potential to make a positive difference.
               </p>
+              <ul className="space-y-4 border-t border-white/10 pt-8">
+                <li className="text-blue-50/80 leading-relaxed">
+                  <span className="font-bold text-cyc-teal">Canadian Champions Award</span> &ndash; Recognizing outstanding role models who have made meaningful contributions to society and inspiring the next generation of leaders.
+                </li>
+                <li className="text-blue-50/80 leading-relaxed">
+                  <span className="font-bold text-cyc-teal">CYC Leadership Program</span> &ndash; Focused on STEM &amp; Entrepreneurship, Community Engagement, and Public Service, empowering youth to solve real-world challenges and create positive change.
+                </li>
+                <li className="text-blue-50/80 leading-relaxed">
+                  <span className="font-bold text-cyc-teal">CYC Think Tank</span> &ndash; A Gen Z-led initiative that brings youth and grassroots voices directly to government and decision-makers.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -68,6 +79,16 @@ export default async function Home() {
 
       {/* Final Call to Action */}
       <BottomCTA />
+
+      {/* With Gratitude — Sponsors */}
+      <section className="w-full max-w-7xl mx-auto px-6 lg:px-8 pb-24 relative z-10">
+        <div className="rounded-3xl border border-gray-100 bg-gray-50 px-8 py-12 text-center shadow-sm">
+          <h2 className="text-3xl lg:text-4xl font-black text-cyc-navy mb-4 tracking-tight">With Gratitude</h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            CYC is sponsored by <span className="font-semibold text-cyc-navy">Hays Group</span> and <span className="font-semibold text-cyc-navy">HealthcareJob.Agency</span>.
+          </p>
+        </div>
+      </section>
 
       {/* Site Footer */}
       <Footer />
