@@ -4,7 +4,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, CheckCircle2, AlertCircle, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle, Clock, Users, Gavel } from "lucide-react";
 import { wixClient } from "@/lib/wixClient";
 import { useRegistration } from "@/components/RegistrationContext";
 
@@ -15,6 +15,7 @@ const fadeUp: Variants = {
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
+    role: "Participant",
     school: "",
     firstName: "",
     lastName: "",
@@ -28,6 +29,8 @@ export default function RegisterPage() {
     hasTeam: "",
     teammates: "",
     projectOption: "",
+    judgeAvailability: "",
+    judgeExperience: "",
     waiverAgreed: false,
     participantSignature: "",
     participantDate: "",
@@ -35,6 +38,8 @@ export default function RegisterPage() {
     parentSignature: "",
     parentDate: "",
   });
+
+  const isJudge = formData.role === "Judge";
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -64,7 +69,12 @@ export default function RegisterPage() {
     setErrorMsg("");
 
     try {
-      await wixClient.items.insert("Registrations", formData);
+      const { hasTeam, teammates, projectOption, judgeAvailability, judgeExperience, ...shared } = formData;
+      const payload = isJudge
+        ? { ...shared, judgeAvailability, judgeExperience }
+        : { ...shared, hasTeam, teammates: hasTeam === "Yes" ? teammates : "", projectOption };
+
+      await wixClient.items.insert("Registrations", payload);
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err: any) {
@@ -94,7 +104,9 @@ export default function RegisterPage() {
           <div className="bg-white rounded-[2rem] p-8 lg:p-12 shadow-xl border border-gray-100 relative">
             <div className="mb-10 pb-6 border-b border-gray-100">
               <h1 className="text-4xl lg:text-5xl font-black text-cyc-navy tracking-tight mb-4">Sign Up</h1>
-              <p className="text-gray-500">Please fill out all required fields below to complete your registration.</p>
+              <p className="text-gray-500">
+                Join as a participant or volunteer as a competition judge. Please fill out all required fields below to complete your registration.
+              </p>
             </div>
 
             {!registrationOpen ? (
@@ -114,7 +126,11 @@ export default function RegisterPage() {
                   <CheckCircle2 className="w-12 h-12 text-green-600" />
                 </div>
                 <h3 className="text-3xl font-black text-gray-900 mb-4">Registration Complete!</h3>
-                <p className="text-gray-600 text-lg mb-10 max-w-lg">Thank you for registering. We've received your information and will be in touch shortly.</p>
+                <p className="text-gray-600 text-lg mb-10 max-w-lg">
+                  {isJudge
+                    ? "Thank you for volunteering to judge. We've received your information and will email you the competition details shortly."
+                    : "Thank you for registering. We've received your information and will be in touch shortly."}
+                </p>
                 <button 
                   onClick={() => window.location.reload()}
                   className="px-8 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors"
@@ -131,10 +147,36 @@ export default function RegisterPage() {
                   </div>
                 )}
 
+                {/* Section 0: Role */}
+                <div className="flex flex-col gap-3">
+                  <label className="text-sm font-bold text-gray-700">I am signing up as a *</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { value: "Participant", Icon: Users, title: "Participant", desc: "Join a team, build a project, and present at the final competition." },
+                      { value: "Judge", Icon: Gavel, title: "Competition Judge", desc: "Evaluate final presentations and earn 4 service hours." },
+                    ].map(({ value, Icon, title, desc }) => {
+                      const selected = formData.role === value;
+                      return (
+                        <label
+                          key={value}
+                          className={`flex flex-col gap-3 p-5 rounded-2xl border-2 cursor-pointer transition-all ${selected ? "border-cyc-teal bg-cyc-teal/5 shadow-sm" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <input type="radio" name="role" value={value} checked={selected} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
+                            <Icon className={`w-5 h-5 ${selected ? "text-cyc-teal" : "text-gray-400"}`} />
+                            <span className="font-bold text-gray-900">{title}</span>
+                          </div>
+                          <span className="text-sm text-gray-500 leading-snug">{desc}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
                 {/* Section 1: Personal Info */}
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="school" className="text-sm font-bold text-gray-700">School *</label>
+                    <label htmlFor="school" className="text-sm font-bold text-gray-700">{isJudge ? "School / Organization *" : "School *"}</label>
                     <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
                   </div>
 
@@ -180,10 +222,10 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                {/* Section 2: Grade & Teams */}
+                {/* Section 2: Grade, Teams & Judging */}
                 <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
                   <div className="flex flex-col gap-3">
-                    <label className="text-sm font-bold text-gray-700">Grade</label>
+                    <label className="text-sm font-bold text-gray-700">{isJudge ? "Grade (if you are a student)" : "Grade"}</label>
                     <div className="flex flex-col gap-2">
                       {["9", "10", "11", "12"].map((g) => (
                         <label key={g} className="flex items-center gap-3 cursor-pointer">
@@ -194,36 +236,62 @@ export default function RegisterPage() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-3">
-                    <label className="text-sm font-bold text-gray-700">Do you already have a team? *</label>
-                    <div className="flex flex-col gap-2">
-                      {["Yes", "No"].map((opt) => (
-                        <label key={opt} className="flex items-center gap-3 cursor-pointer">
-                          <input type="radio" name="hasTeam" value={opt} required checked={formData.hasTeam === opt} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
-                          <span className="text-gray-700">{opt}</span>
-                        </label>
-                      ))}
+                  {!isJudge && (
+                    <div className="flex flex-col gap-3">
+                      <label className="text-sm font-bold text-gray-700">Do you already have a team? *</label>
+                      <div className="flex flex-col gap-2">
+                        {["Yes", "No"].map((opt) => (
+                          <label key={opt} className="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="hasTeam" value={opt} required checked={formData.hasTeam === opt} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
+                            <span className="text-gray-700">{opt}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  {formData.hasTeam === "Yes" && (
+                  {!isJudge && formData.hasTeam === "Yes" && (
                     <div className="flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-300">
                       <label htmlFor="teammates" className="text-sm font-bold text-gray-700">If you chose "YES" for the above question, list your teammates below:</label>
                       <input type="text" id="teammates" name="teammates" value={formData.teammates} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="Add your teammates" />
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-3">
-                    <label className="text-sm font-bold text-gray-700">Project Options:</label>
-                    <div className="flex flex-col gap-2">
-                      {["CYC Think Tank", "Senior Care", "Others"].map((opt) => (
-                        <label key={opt} className="flex items-center gap-3 cursor-pointer">
-                          <input type="radio" name="projectOption" value={opt} checked={formData.projectOption === opt} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
-                          <span className="text-gray-700">{opt}</span>
-                        </label>
-                      ))}
+                  {!isJudge && (
+                    <div className="flex flex-col gap-3">
+                      <label className="text-sm font-bold text-gray-700">Project Options:</label>
+                      <div className="flex flex-col gap-2">
+                        {["CYC Think Tank", "Senior Care", "Others"].map((opt) => (
+                          <label key={opt} className="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="projectOption" value={opt} checked={formData.projectOption === opt} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
+                            <span className="text-gray-700">{opt}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
+
+                  {isJudge && (
+                    <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-top-2 duration-300">
+                      <div className="flex items-start gap-3 p-5 bg-cyc-yellow/10 rounded-xl border border-cyc-yellow/30 text-sm text-gray-700 leading-relaxed">
+                        <Gavel className="w-5 h-5 shrink-0 mt-0.5 text-yellow-600" />
+                        <span>
+                          Judges attend the in-person final competition and score teams on innovation, feasibility, impact, teamwork, and presentation quality.
+                          Non-participating students earn <strong className="text-gray-900">4 service hours</strong> for judging.
+                        </span>
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="judgeAvailability" className="text-sm font-bold text-gray-700">Availability for the final competition *</label>
+                        <input type="text" id="judgeAvailability" name="judgeAvailability" required value={formData.judgeAvailability} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="e.g. any weekend, or specific dates you cannot make" />
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="judgeExperience" className="text-sm font-bold text-gray-700">Relevant experience or areas of interest</label>
+                        <input type="text" id="judgeExperience" name="judgeExperience" value={formData.judgeExperience} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="e.g. entrepreneurship, healthcare, software, public speaking" />
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Section 3: Waiver */}
@@ -302,13 +370,24 @@ export default function RegisterPage() {
 
                 {/* Section 5: Video Info & Submission */}
                 <div className="flex flex-col gap-6 pt-10 mt-4 border-t border-gray-200">
-                  <h2 className="text-3xl font-black text-gray-900 tracking-tight">2-Minute Intro Video Submission</h2>
-                  <p className="text-gray-600 text-sm">Once the form is submitted, we will <strong className="text-gray-900">send you a confirmation and next-steps email regarding a</strong> 2-minute video interview submission.</p>
+                  {!isJudge && (
+                    <>
+                      <h2 className="text-3xl font-black text-gray-900 tracking-tight">2-Minute Intro Video Submission</h2>
+                      <p className="text-gray-600 text-sm">Once the form is submitted, we will <strong className="text-gray-900">send you a confirmation and next-steps email regarding a</strong> 2-minute video interview submission.</p>
+                    </>
+                  )}
 
-                  <div className="mt-4">
+                  <div className={isJudge ? "" : "mt-4"}>
                     <h3 className="text-2xl font-black text-gray-900 tracking-tight mb-4">What Happens Next?</h3>
                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm font-medium">
-                      <li>Selected students will be <strong>contacted</strong></li>
+                      {isJudge ? (
+                        <>
+                          <li>We will email you the <strong>competition date, location, and judging rubric</strong></li>
+                          <li>Students judging receive <strong>4 service hours</strong> once the competition is complete</li>
+                        </>
+                      ) : (
+                        <li>Selected students will be <strong>contacted</strong></li>
+                      )}
                       <li>Questions? Reach out to <strong>your local CYC chapter or email (admin@thecyc.org)</strong></li>
                     </ul>
                     <p className="mt-6 text-gray-700 font-medium">Thanks for submitting!</p>
