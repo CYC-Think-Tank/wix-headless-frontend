@@ -30,7 +30,6 @@ export default function RegisterPage() {
     teammates: "",
     projectOption: "",
     judgeAvailability: "",
-    judgeExperience: "",
     waiverAgreed: false,
     participantSignature: "",
     participantDate: "",
@@ -69,9 +68,9 @@ export default function RegisterPage() {
     setErrorMsg("");
 
     try {
-      const { hasTeam, teammates, projectOption, judgeAvailability, judgeExperience, ...shared } = formData;
+      const { hasTeam, teammates, projectOption, judgeAvailability, ...shared } = formData;
       const payload = isJudge
-        ? { ...shared, judgeAvailability, judgeExperience }
+        ? { ...shared, judgeAvailability }
         : { ...shared, hasTeam, teammates: hasTeam === "Yes" ? teammates : "", projectOption };
 
       await wixClient.items.insert("Registrations", payload);
@@ -261,7 +260,7 @@ export default function RegisterPage() {
                     <div className="flex flex-col gap-3">
                       <label className="text-sm font-bold text-gray-700">Project Options:</label>
                       <div className="flex flex-col gap-2">
-                        {["CYC Think Tank", "Senior Care", "Others"].map((opt) => (
+                        {["CYC Think Tank", "Senior Care", "Innovation"].map((opt) => (
                           <label key={opt} className="flex items-center gap-3 cursor-pointer">
                             <input type="radio" name="projectOption" value={opt} checked={formData.projectOption === opt} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
                             <span className="text-gray-700">{opt}</span>
@@ -284,11 +283,6 @@ export default function RegisterPage() {
                       <div className="flex flex-col gap-2">
                         <label htmlFor="judgeAvailability" className="text-sm font-bold text-gray-700">Availability for the final competition *</label>
                         <input type="text" id="judgeAvailability" name="judgeAvailability" required value={formData.judgeAvailability} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="e.g. any weekend, or specific dates you cannot make" />
-                      </div>
-
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="judgeExperience" className="text-sm font-bold text-gray-700">Relevant experience or areas of interest</label>
-                        <input type="text" id="judgeExperience" name="judgeExperience" value={formData.judgeExperience} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="e.g. entrepreneurship, healthcare, software, public speaking" />
                       </div>
                     </div>
                   )}
