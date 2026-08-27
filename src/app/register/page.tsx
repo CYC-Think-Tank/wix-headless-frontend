@@ -3,19 +3,14 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { motion, Variants } from "framer-motion";
-import { ArrowRight, CheckCircle2, AlertCircle, Clock, Users, Gavel } from "lucide-react";
+import { motion } from "framer-motion";
+import { CheckCircle2, AlertCircle, Clock, Users, Gavel, RefreshCw } from "lucide-react";
 import { wixClient } from "@/lib/wixClient";
 import { useRegistration } from "@/components/RegistrationContext";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
-    role: "Participant",
+    role: "New Student",
     school: "",
     firstName: "",
     lastName: "",
@@ -30,6 +25,8 @@ export default function RegisterPage() {
     teammates: "",
     projectOption: "",
     judgeAvailability: "",
+    positionAtCyc: "",
+    preferredPillar: "",
     waiverAgreed: false,
     participantSignature: "",
     participantDate: "",
@@ -39,6 +36,7 @@ export default function RegisterPage() {
   });
 
   const isJudge = formData.role === "Judge";
+  const isReturningStudent = formData.role === "Returning Student";
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -68,17 +66,29 @@ export default function RegisterPage() {
     setErrorMsg("");
 
     try {
-      const { hasTeam, teammates, projectOption, judgeAvailability, ...shared } = formData;
-      const payload = isJudge
-        ? { ...shared, judgeAvailability }
-        : { ...shared, hasTeam, teammates: hasTeam === "Yes" ? teammates : "", projectOption };
+      const { hasTeam, teammates, projectOption, judgeAvailability, positionAtCyc, preferredPillar, ...shared } = formData;
+      const payload = isReturningStudent
+        ? {
+            role: formData.role,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            school: formData.school,
+            grade: formData.grade,
+            positionAtCyc,
+            preferredPillar,
+            email: formData.email,
+            phone: formData.phone,
+          }
+        : isJudge
+          ? { ...shared, judgeAvailability }
+          : { ...shared, hasTeam, teammates: hasTeam === "Yes" ? teammates : "", projectOption };
 
       await wixClient.items.insert("Registrations", payload);
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to submit registration:", err);
-      setErrorMsg(err.message || "Something went wrong. Please try again.");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } finally {
       setIsSubmitting(false);
@@ -104,7 +114,7 @@ export default function RegisterPage() {
             <div className="mb-10 pb-6 border-b border-gray-100">
               <h1 className="text-4xl lg:text-5xl font-black text-cyc-navy tracking-tight mb-4">Sign Up</h1>
               <p className="text-gray-500">
-                Join as a participant or volunteer as a competition judge. Please fill out all required fields below to complete your registration.
+                Register as a new student, returning student, or competition judge. Please fill out all required fields below to complete your registration.
               </p>
             </div>
 
@@ -149,9 +159,10 @@ export default function RegisterPage() {
                 {/* Section 0: Role */}
                 <div className="flex flex-col gap-3">
                   <label className="text-sm font-bold text-gray-700">I am signing up as a *</label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
-                      { value: "Participant", Icon: Users, title: "Participant", desc: "Join a team, build a project, and present at the final competition." },
+                      { value: "New Student", Icon: Users, title: "New Students", desc: "Join a team, build a project, and present at the final competition." },
+                      { value: "Returning Student", Icon: RefreshCw, title: "Returning Student", desc: "Return to CYC in a leadership role and select your preferred pillar." },
                       { value: "Judge", Icon: Gavel, title: "Competition Judge", desc: "Evaluate final presentations and earn 4 service hours." },
                     ].map(({ value, Icon, title, desc }) => {
                       const selected = formData.role === value;
@@ -172,8 +183,67 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
+                {isReturningStudent && (
+                  <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div className="flex flex-col sm:flex-row gap-6">
+                      <div className="flex flex-col gap-2 flex-1">
+                        <label htmlFor="firstName" className="text-sm font-bold text-gray-700">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required value={formData.firstName} onChange={handleChange} autoComplete="given-name" className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
+                      </div>
+                      <div className="flex flex-col gap-2 flex-1">
+                        <label htmlFor="lastName" className="text-sm font-bold text-gray-700">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required value={formData.lastName} onChange={handleChange} autoComplete="family-name" className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="school" className="text-sm font-bold text-gray-700">School *</label>
+                      <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} autoComplete="organization" className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
+                    </div>
+
+                    <fieldset className="flex flex-col gap-3">
+                      <legend className="text-sm font-bold text-gray-700 mb-3">Grade *</legend>
+                      <div className="flex flex-col gap-2">
+                        {["9", "10", "11", "12"].map((grade) => (
+                          <label key={grade} className="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="grade" value={grade} required checked={formData.grade === grade} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
+                            <span className="text-gray-700">{grade}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="positionAtCyc" className="text-sm font-bold text-gray-700">Position at CYC *</label>
+                      <input type="text" id="positionAtCyc" name="positionAtCyc" required value={formData.positionAtCyc} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="e.g. Team Lead or Program Executive" />
+                    </div>
+
+                    <fieldset className="flex flex-col gap-3">
+                      <legend className="text-sm font-bold text-gray-700 mb-3">Preferred Pillar *</legend>
+                      <div className="flex flex-col gap-2">
+                        {["STEM", "Marketing", "Business"].map((pillar) => (
+                          <label key={pillar} className="flex items-center gap-3 cursor-pointer">
+                            <input type="radio" name="preferredPillar" value={pillar} required checked={formData.preferredPillar === pillar} onChange={handleChange} className="w-4 h-4 text-cyc-teal border-gray-300 focus:ring-cyc-teal" />
+                            <span className="text-gray-700">{pillar}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="email" className="text-sm font-bold text-gray-700">Personal Email *</label>
+                      <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} autoComplete="email" className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="phone" className="text-sm font-bold text-gray-700">Phone *</label>
+                      <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} autoComplete="tel" className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
+                    </div>
+                  </div>
+                )}
+
                 {/* Section 1: Personal Info */}
-                <div className="flex flex-col gap-6">
+                {!isReturningStudent && <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="school" className="text-sm font-bold text-gray-700">{isJudge ? "School / Organization *" : "School *"}</label>
                     <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
@@ -219,10 +289,10 @@ export default function RegisterPage() {
                     <label htmlFor="emergencyPhone" className="text-sm font-bold text-gray-700">Emergency Contact Phone *</label>
                     <input type="tel" id="emergencyPhone" name="emergencyPhone" required value={formData.emergencyPhone} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" />
                   </div>
-                </div>
+                </div>}
 
                 {/* Section 2: Grade, Teams & Judging */}
-                <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
+                {!isReturningStudent && <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
                   <div className="flex flex-col gap-3">
                     <label className="text-sm font-bold text-gray-700">{isJudge ? "Grade (if you are a student)" : "Grade"}</label>
                     <div className="flex flex-col gap-2">
@@ -251,7 +321,7 @@ export default function RegisterPage() {
 
                   {!isJudge && formData.hasTeam === "Yes" && (
                     <div className="flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 duration-300">
-                      <label htmlFor="teammates" className="text-sm font-bold text-gray-700">If you chose "YES" for the above question, list your teammates below:</label>
+                      <label htmlFor="teammates" className="text-sm font-bold text-gray-700">If you chose &quot;YES&quot; for the above question, list your teammates below:</label>
                       <input type="text" id="teammates" name="teammates" value={formData.teammates} onChange={handleChange} className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyc-teal/20 focus:border-cyc-teal outline-none transition-all placeholder:text-gray-400" placeholder="Add your teammates" />
                     </div>
                   )}
@@ -286,10 +356,10 @@ export default function RegisterPage() {
                       </div>
                     </div>
                   )}
-                </div>
+                </div>}
 
                 {/* Section 3: Waiver */}
-                <div className="flex flex-col gap-6 pt-8 mt-4 border-t border-gray-200">
+                {!isReturningStudent && <div className="flex flex-col gap-6 pt-8 mt-4 border-t border-gray-200">
                   <h2 className="text-3xl font-black text-gray-900 tracking-tight">CYC Volunteer Waiver and Consent Form</h2>
                   <p className="text-gray-700 font-medium">Please read and sign below:</p>
                   
@@ -324,10 +394,10 @@ export default function RegisterPage() {
                       I acknowledge that the information provided is true and accurate and that I have read, understood, and will abide by the Volunteer Agreement above. I grant the CYC permission to contact the references listed on my application form and follow up on any information provided.
                     </span>
                   </label>
-                </div>
+                </div>}
 
                 {/* Section 4: Signatures */}
-                <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
+                {!isReturningStudent && <div className="flex flex-col gap-6 pt-6 border-t border-gray-100">
                   <div className="flex flex-col md:flex-row gap-6">
                     <div className="flex flex-col gap-2 flex-1">
                       <label htmlFor="participantSignature" className="text-sm font-bold text-gray-700">Participant Signature *</label>
@@ -360,11 +430,11 @@ export default function RegisterPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>}
 
                 {/* Section 5: Video Info & Submission */}
                 <div className="flex flex-col gap-6 pt-10 mt-4 border-t border-gray-200">
-                  {!isJudge && (
+                  {!isJudge && !isReturningStudent && (
                     <>
                       <h2 className="text-3xl font-black text-gray-900 tracking-tight">2-Minute Intro Video Submission</h2>
                       <p className="text-gray-600 text-sm">Once the form is submitted, we will <strong className="text-gray-900">send you a confirmation and next-steps email regarding a</strong> 2-minute video interview submission.</p>
